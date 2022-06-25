@@ -55,7 +55,7 @@ git clone git@github.com:ioanekareli/MoviesApp.git
 Enter the project root folder with:
 
 ```sh
-cd moviesapp-android
+cd moviesapplication
 ```
 
 Execute the command:
@@ -91,14 +91,14 @@ The MoviesApp project is composed of different repositories—one for each compo
 | ----------------------------------------------------------- | ------------------------- |
 | [Gradle](https://gradle.org/)                         | Apache 2.0                       |
 | [Ktlint](https://github.com/pinterest/ktlint) | MIT                       |
-
+| [External Movies API](https://api.themoviedb.org) | OpenSource |
 
 ### Libraries
 
 | Name                                                       | License    |
 | ---------------------------------------------------------- | ---------- |
 | [Retrofit](https://github.com/square/retrofit)      | Apache 2.0        |
-
+| [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) | Apache 2.0 |
 ## License details
 
 The licence for this repository is a [GNU Affero General Public Licence version 3](https://www.gnu.org/licenses/agpl-3.0.html) (SPDX: AGPL-3.0). Please see the [LICENSE](LICENSE) file for full reference.
