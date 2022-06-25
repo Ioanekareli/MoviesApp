@@ -5,6 +5,7 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.moviesapplication.broadcastReceiver.BroadCastReceiver
+import com.example.moviesapplication.broadcastReceiver.NotificationManager
 import com.example.moviesapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,10 +18,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        NotificationManager.channel(this)
+
         receiver = BroadCastReceiver()
 
         IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
-            registerReceiver(receiver,it)
+            registerReceiver(receiver, it)
         }
 
     }

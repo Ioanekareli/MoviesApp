@@ -44,7 +44,7 @@ object NotificationManager {
         val notification = NotificationCompat.Builder(context, CHANNEL_ID).setDefaults(
             Notification.DEFAULT_ALL
         )
-            .setSmallIcon(R.drawable.ic_baseline_wifi_off_24)
+            .setSmallIcon(R.drawable.ic_baseline_wifi_24)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentTitle(message)
             .setColor(Color.GREEN)

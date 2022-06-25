@@ -78,11 +78,8 @@ class MoviesDetailFragment : Fragment(R.layout.fragment_movies_detail) {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                     }
                 }
-
                 else -> {
-                    response.message.let {
-                        Toast.makeText(context, "Other Error", Toast.LENGTH_SHORT).show()
-                    }
+
                 }
             }
         })
