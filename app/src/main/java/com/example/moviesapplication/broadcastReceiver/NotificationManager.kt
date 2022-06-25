@@ -9,8 +9,9 @@ import android.graphics.Color
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.example.cryptotrackerapp.MainActivity
-import com.example.cryptotrackerapp.R
+import com.example.moviesapplication.MainActivity
+import com.example.moviesapplication.R
+
 
 object NotificationManager {
 
@@ -43,7 +44,7 @@ object NotificationManager {
         val notification = NotificationCompat.Builder(context, CHANNEL_ID).setDefaults(
             Notification.DEFAULT_ALL
         )
-            .setSmallIcon(R.drawable.ic_baseline_airplanemode_active_24)
+            .setSmallIcon(R.drawable.ic_baseline_wifi_off_24)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentTitle(message)
             .setColor(Color.GREEN)
