@@ -9,6 +9,6 @@ interface PopularMoviesApiService {
     @GET(ApiConstants.POPULAR_MOVIES_ENDPOINT)
     suspend fun getPopularMovies(
         @Query(ApiConstants.API_KEY) apiKey:String,
-        @Query(ApiConstants.PAGE) page:Int
-    ): PopularMoviesDto
+        @Query(ApiConstants.PAGE.toString()) page:Int
+    ):PopularMoviesDto
 }

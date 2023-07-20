@@ -1,12 +1,13 @@
 package com.example.moviesapp.common.data.api.api_mapper
 
-import com.example.moviesapp.common.data.api.dto.PopularMoviesListDto
-import com.example.moviesapp.common.domain.model.PopularMoviesList
+import com.example.moviesapp.common.data.api.dto.PopularMoviesDetailsDto
+import com.example.moviesapp.common.domain.model.PopularMoviesDetails
+import javax.inject.Inject
 
-class PopularMoviesListMapper : ApiMapper<PopularMoviesListDto, PopularMoviesList> {
-    override fun mapToDomain(apiEntity:PopularMoviesListDto): PopularMoviesList {
+class PopularMoviesListMapper @Inject constructor() : ApiMapper<PopularMoviesDetailsDto, PopularMoviesDetails> {
+    override fun mapToDomain(apiEntity:PopularMoviesDetailsDto): PopularMoviesDetails {
         with(apiEntity){
-            return PopularMoviesList(
+            return PopularMoviesDetails(
                 id = id?:throw MappingException("id can not be null"),
                 adult = apiEntity.adult?:false,
                 genreIds = apiEntity.genreIds.orEmpty(),
