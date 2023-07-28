@@ -34,13 +34,12 @@ class PopularMoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupUI()
-        requestPopularMoviesList()
     }
 
     private fun setupUI(){
         val adapter = createAdapter()
         initRecyclerView(adapter)
-        observerViewStateUpdates(adapter)
+        observeData(adapter)
     }
 
     private fun createAdapter():PopularMoviesRecyclerAdapter{
@@ -57,29 +56,10 @@ class PopularMoviesFragment : Fragment() {
         }
     }
 
-    private fun observerViewStateUpdates(adapter: PopularMoviesRecyclerAdapter){
-        viewModel.state.observe(viewLifecycleOwner){
-            updateScreenState(it,adapter)
-            Log.d("logkata", "observerViewStateUpdates: $it ")
+    private fun observeData(adapter:PopularMoviesRecyclerAdapter){
+        viewModel.popularMovies.observe(viewLifecycleOwner){
+            adapter.setData(it.results)
         }
-    }
-
-    private fun updateScreenState(state: PopularMoviesViewState,adapter: PopularMoviesRecyclerAdapter){
-        binding.progressBar.isVisible = state.loading
-        adapter.setData(state.popularMovies)
-        Log.d("logkata", "updateScreenState: ${state.popularMovies} ")
-        noMoreMovies(state.noMorePopularMovies)
-    }
-
-    private fun noMoreMovies(noMoreMovies:Boolean){
-        val message = "There is no more movies"
-        if(noMoreMovies){
-           throw NoMoreMoviesException(message)
-        }
-    }
-
-    private fun requestPopularMoviesList(){
-        viewModel.onEvent(PopularMoviesEvent.RequestPopularMoviesList,ApiConstants.API_KEY,ApiConstants.PAGE)
     }
 
     override fun onDestroyView() {

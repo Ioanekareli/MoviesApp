@@ -3,6 +3,7 @@ package com.example.moviesapp.common.presentation.popularmovies
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.domain.model.PopularMovies
 import com.example.moviesapp.common.domain.model.PopularMoviesDetails
 import com.example.moviesapp.common.utils.setImage
@@ -23,7 +24,8 @@ class PopularMoviesRecyclerAdapter @Inject constructor()
                 movieTitle.text = model.title
                 moviePopularity.text = model.popularity.toString()
                 releaseDate.text = model.releaseData
-                moviePoster.setImage(model.posterPath)
+                overview.text = model.overview
+                moviePoster.setImage(ApiConstants.IMG_URL + model.posterPath)
             }
         }
     }

@@ -4,7 +4,8 @@ object ApiConstants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val POPULAR_MOVIES_ENDPOINT = "movie/popular"
 
-    const val API_KEY = "b2be7c6263d4844e6a6565c38e728c5f"
+    const val API_KEY = "f0e8fd8310cf03464835a4e517f013df"
     const val PAGE = 10
+    const val IMG_URL = "https://image.tmdb.org/t/p/w500"
 }
 
