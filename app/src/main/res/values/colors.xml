@@ -11,4 +11,5 @@
     <color name="body_grey">#14171C</color>
     <color name="mid_grey">#2C343F</color>
     <color name="transparent_grey">#F7F7F7</color>
+    <color name="red">#C0392B</color>
 </resources>

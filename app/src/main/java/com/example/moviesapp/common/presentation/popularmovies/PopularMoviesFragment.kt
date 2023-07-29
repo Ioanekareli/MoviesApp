@@ -1,16 +1,14 @@
 package com.example.moviesapp.common.presentation.popularmovies
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moviesapp.common.data.api.ApiConstants
-import com.example.moviesapp.common.domain.NoMoreMoviesException
+import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.databinding.FragmentPopularMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -58,7 +56,23 @@ class PopularMoviesFragment : Fragment() {
 
     private fun observeData(adapter:PopularMoviesRecyclerAdapter){
         viewModel.popularMovies.observe(viewLifecycleOwner){
-            adapter.setData(it.results)
+            when(it){
+                is Resource.Success -> {
+                    adapter.setData(it.data.results)
+                    binding.progressBar.isVisible = false
+                }
+                is Resource.Error -> {
+                    binding.progressBar.isVisible = false
+                    binding.errorText.isVisible = true
+                }
+                is Resource.Loading -> {
+                    binding.progressBar.isVisible = true
+                }
+
+                else -> {
+                    binding.errorText.isVisible = true
+                }
+            }
         }
     }
 
