@@ -2,7 +2,7 @@ package com.example.moviesapp.common.data.api.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class PopularMoviesListDto(
+data class PopularMoviesDetailsDto(
     val adult: Boolean?,
     @SerializedName("backdrop_path")
     val backdropPath: String?,

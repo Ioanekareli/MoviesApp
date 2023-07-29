@@ -1,6 +1,6 @@
 package com.example.moviesapp.common.domain.model
 
-data class PopularMoviesList (
+data class PopularMoviesDetails (
     val id:Int,
     val adult:Boolean,
     val genreIds:List<Int>?,
