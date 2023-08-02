@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.moviesapp.common.presentation.popularmovies.PopularMoviesFragment
+import com.example.moviesapp.common.presentation.reviews.ReviewsFragment
 import com.example.moviesapp.databinding.FragmentHomePageBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -16,7 +17,10 @@ class HomePageFragment : Fragment() {
     private val binding get() = _binding!!
     private var _binding:FragmentHomePageBinding? = null
 
-    private val fragmentList = listOf(PopularMoviesFragment())
+    private val fragmentList = listOf(
+        PopularMoviesFragment(),
+        ReviewsFragment()
+    )
 
     private lateinit var tabLayout:TabLayout
     private lateinit var viewPager:ViewPager2
@@ -46,6 +50,7 @@ class HomePageFragment : Fragment() {
         TabLayoutMediator(tabLayout,viewPager){ tab,index ->
             tab.text = when(index){
                 POPULAR_MOVIES -> "Popular Movies"
+                REVIEWS -> "Reviews"
                 else -> EMPTY_STRING
             }
         }.attach()
@@ -53,6 +58,7 @@ class HomePageFragment : Fragment() {
 
     companion object{
         private const val POPULAR_MOVIES = 0
+        private const val REVIEWS = 1
         private const val EMPTY_STRING = ""
     }
 

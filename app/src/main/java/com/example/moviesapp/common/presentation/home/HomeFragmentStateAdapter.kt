@@ -2,7 +2,6 @@ package com.example.moviesapp.common.presentation.home
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import javax.inject.Inject
 
 class HomeFragmentStateAdapter(
     fragment: Fragment,
@@ -16,6 +15,6 @@ class HomeFragmentStateAdapter(
     }
 
     companion object{
-        const val FRAGMENTS_COUNT = 1
+        const val FRAGMENTS_COUNT = 2
     }
 }

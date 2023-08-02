@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".common.presentation.moviedetails.MovieDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mid_grey">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/moviesPosterLarge"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movieTitle"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:letterSpacing="0.02"
+            android:maxLines="2"
+            android:text="Spider-Man: Across the Spider-Verse"
+            android:textAlignment="center"
+            android:textColor="@color/transparent_grey"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/verticalStart"
+            app:layout_constraintTop_toBottomOf="@+id/moviesPosterLarge" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movieDirectorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="DIRECTED BY"
+            android:textColor="@color/header_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/verticalStart"
+            app:layout_constraintTop_toBottomOf="@id/movieTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movieDirectorName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:lines="2"
+            android:text="Joaquim Dos Santos, Justin K. Thompson , Kemp Powers"
+            android:textColor="@color/darker_header_grey"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/verticalStart"
+            app:layout_constraintTop_toBottomOf="@id/movieDirectorTv" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/MoviePosterSmall"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toStartOf="@+id/verticalEnd"
+            app:layout_constraintTop_toBottomOf="@+id/moviesPosterLarge" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBeforeOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="350dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movieOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guidelineBeforeOverview"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/verticalStart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/verticalEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.97"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
