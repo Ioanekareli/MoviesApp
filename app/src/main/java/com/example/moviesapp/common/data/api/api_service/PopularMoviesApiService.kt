@@ -1,7 +1,7 @@
 package com.example.moviesapp.common.data.api.api_service
 
 import com.example.moviesapp.common.data.api.ApiConstants
-import com.example.moviesapp.common.data.api.dto.PopularMoviesDto
+import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapp.common.data.api.ApiConstants
-import com.example.moviesapp.common.domain.model.PopularMovies
 import com.example.moviesapp.common.domain.model.PopularMoviesDetails
 import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.PopularMoviesRecyclerItemBinding
 import javax.inject.Inject
 
-class PopularMoviesRecyclerAdapter @Inject constructor()
+class PopularMoviesRecyclerAdapter @Inject constructor(
+    val onClick: () -> Unit
+)
     :RecyclerView.Adapter<PopularMoviesRecyclerAdapter.ViewHolder>(){
 
     private val popularMovies = mutableListOf<PopularMoviesDetails>()
@@ -44,6 +45,9 @@ class PopularMoviesRecyclerAdapter @Inject constructor()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(position)
+        holder.itemView.setOnClickListener {
+            onClick.invoke()
+        }
     }
 
     fun setData(popularMovies:List<PopularMoviesDetails>){

@@ -1,10 +1,10 @@
 package com.example.moviesapp.common.data.di
 
 import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
-import com.example.moviesapp.common.data.api.api_mapper.PopularMoviesListMapper
-import com.example.moviesapp.common.data.api.api_mapper.PopularMoviesMapper
-import com.example.moviesapp.common.data.api.dto.PopularMoviesDetailsDto
-import com.example.moviesapp.common.data.api.dto.PopularMoviesDto
+import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesListMapper
+import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
+import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDetailsDto
+import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import com.example.moviesapp.common.domain.model.PopularMovies
 import com.example.moviesapp.common.domain.model.PopularMoviesDetails
 import dagger.Binds
