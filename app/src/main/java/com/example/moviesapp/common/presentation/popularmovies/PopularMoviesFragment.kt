@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
-import com.example.moviesapp.common.presentation.home.HomePageFragment
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.databinding.FragmentPopularMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,9 +48,8 @@ class PopularMoviesFragment : Fragment() {
     }
 
     private fun navigateToMovieDetails(){
-        val navHostFragment = parentFragmentManager.findFragmentById(R.id.homePageFragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        navController.navigate(R.id.action_popularMoviesFragment_to_movieDetailsFragment)
+        val bundle = bundleOf("id" to id)
+        findNavController().navigate(R.id.movieDetailsFragment,bundle)
     }
 
     private fun initRecyclerView(

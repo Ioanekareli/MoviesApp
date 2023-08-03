@@ -1,11 +1,14 @@
-package com.example.moviesapp.common.data.api.api_mapper
+package com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper
 
-import com.example.moviesapp.common.data.api.dto.PopularMoviesDetailsDto
+import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
+import com.example.moviesapp.common.data.api.api_mapper.MappingException
+import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDetailsDto
 import com.example.moviesapp.common.domain.model.PopularMoviesDetails
 import javax.inject.Inject
 
-class PopularMoviesListMapper @Inject constructor() : ApiMapper<PopularMoviesDetailsDto, PopularMoviesDetails> {
-    override fun mapToDomain(apiEntity:PopularMoviesDetailsDto): PopularMoviesDetails {
+class PopularMoviesListMapper @Inject constructor() :
+    ApiMapper<PopularMoviesDetailsDto, PopularMoviesDetails> {
+    override fun mapToDomain(apiEntity: PopularMoviesDetailsDto): PopularMoviesDetails {
         with(apiEntity){
             return PopularMoviesDetails(
                 id = id?:throw MappingException("id can not be null"),

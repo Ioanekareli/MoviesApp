@@ -87,6 +87,9 @@ dependencies {
 
     //Pagination
     implementation("androidx.paging:paging-runtime-ktx:3.1.1")
+
+    //youtube video
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
 }
 kapt {
     correctErrorTypes = true

@@ -56,6 +56,9 @@ class HomePageFragment : Fragment() {
         }.attach()
     }
 
+    private fun navigateToReviewsFragment(){
+    }
+
     companion object{
         private const val POPULAR_MOVIES = 0
         private const val REVIEWS = 1

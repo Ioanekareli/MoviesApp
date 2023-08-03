@@ -1,6 +1,6 @@
 package com.example.moviesapp.common.data.repository
 
-import com.example.moviesapp.common.data.api.api_mapper.PopularMoviesMapper
+import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
 import com.example.moviesapp.common.data.api.api_service.PopularMoviesApiService
 import com.example.moviesapp.common.domain.model.PopularMovies
 import com.example.moviesapp.common.domain.repository.PopularMoviesRepository

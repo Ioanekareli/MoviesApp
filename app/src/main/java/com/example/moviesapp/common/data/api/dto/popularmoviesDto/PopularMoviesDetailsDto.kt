@@ -1,4 +1,4 @@
-package com.example.moviesapp.common.data.api.dto
+package com.example.moviesapp.common.data.api.dto.popularmoviesDto
 
 import com.google.gson.annotations.SerializedName
 
