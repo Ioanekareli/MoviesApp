@@ -12,5 +12,5 @@
     <color name="mid_grey">#2C343F</color>
     <color name="transparent_grey">#F7F7F7</color>
     <color name="red">#C0392B</color>
-    <color name="darker_header_grey">#85929E</color>
+    <color name="lighter_header_grey">#85929E</color>
 </resources>

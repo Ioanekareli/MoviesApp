@@ -1,6 +1,6 @@
 package com.example.moviesapp.common.presentation.popularmovies
 
-import com.example.moviesapp.common.domain.model.PopularMoviesDetails
+import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 
 data class PopularMoviesViewState(
     val loading:Boolean = true,

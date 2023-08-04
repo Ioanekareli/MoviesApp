@@ -1,6 +1,7 @@
 package com.example.moviesapp.common.data.di
 
 import com.example.moviesapp.common.data.api.ApiConstants
+import com.example.moviesapp.common.data.api.api_service.MovieDetailsApiService
 import com.example.moviesapp.common.data.api.api_service.PopularMoviesApiService
 import dagger.Module
 import dagger.Provides
@@ -22,6 +23,16 @@ object ApiModule{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(PopularMoviesApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun movieDetailsApiService():MovieDetailsApiService{
+        return Retrofit.Builder()
+            .baseUrl(ApiConstants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(MovieDetailsApiService::class.java)
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.moviesapp.common.domain.model
+package com.example.moviesapp.common.domain.model.popularmovies
 
 data class PopularMoviesDetails (
     val id:Int,
