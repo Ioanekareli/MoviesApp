@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapp.common.data.api.ApiConstants
-import com.example.moviesapp.common.domain.model.PopularMoviesDetails
+import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.PopularMoviesRecyclerItemBinding
 import javax.inject.Inject

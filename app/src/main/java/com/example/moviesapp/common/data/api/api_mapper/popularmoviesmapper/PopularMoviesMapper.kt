@@ -2,7 +2,7 @@ package com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper
 
 import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
-import com.example.moviesapp.common.domain.model.PopularMovies
+import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import javax.inject.Inject
 
 class PopularMoviesMapper @Inject constructor(

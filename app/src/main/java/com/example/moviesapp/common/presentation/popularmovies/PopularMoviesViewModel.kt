@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.data.repository.PopularMoviesRepositoryImpl
-import com.example.moviesapp.common.domain.model.PopularMovies
+import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import com.example.moviesapp.common.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,12 +20,12 @@ class PopularMoviesViewModel @Inject constructor(
     private val _popularMovies = MutableLiveData<Resource<PopularMovies>>()
 
     init {
-        loadMovies(ApiConstants.API_KEY,1)
+        loadMovies()
     }
 
-    private fun loadMovies(apiKey: String,page: Int){
+    private fun loadMovies(){
         viewModelScope.launch {
-            _popularMovies.value = repositoryImpl.getPopularMovies(apiKey,page)
+            _popularMovies.value = repositoryImpl.getPopularMovies(1)
         }
     }
 

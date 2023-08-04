@@ -12,6 +12,30 @@
         android:layout_height="wrap_content"
         android:background="@color/mid_grey">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/errorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Something Went Wrong"
+            android:textSize="18sp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/moviesPosterLarge"
             android:layout_width="match_parent"
@@ -62,14 +86,78 @@
             android:fontFamily="@font/poppins_medium"
             android:lines="2"
             android:text="Joaquim Dos Santos, Justin K. Thompson , Kemp Powers"
-            android:textColor="@color/darker_header_grey"
+            android:textColor="@color/lighter_header_grey"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
             app:layout_constraintTop_toBottomOf="@id/movieDirectorTv" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="140"
+            android:textSize="15sp"
+            android:textColor="@color/header_grey"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/verticalStart"
+            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/runtimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mins"
+            android:textSize="15sp"
+            android:textColor="@color/header_grey"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            android:letterSpacing="0.1"
+            app:layout_constraintStart_toEndOf="@id/runtime"
+            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/budgetTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BUDGET :"
+            android:textSize="14sp"
+            android:textColor="@color/lighter_header_grey"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/runtimeTv"
+            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70000000"
+            android:textSize="14sp"
+            android:textColor="@color/header_grey"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/budgetTv"
+            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/usd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="$"
+            android:textColor="@color/lighter_header_grey"
+            android:textSize="16sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toEndOf="@id/budget"
+            app:layout_constraintTop_toBottomOf="@+id/movieDirectorName" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/MoviePosterSmall"
+            android:id="@+id/moviePosterSmall"
             android:layout_width="100dp"
             android:layout_height="170dp"
             android:src="@drawable/ic_launcher_background"
@@ -82,7 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="320dp" />
+            app:layout_constraintGuide_begin="350dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/movieOverview"
