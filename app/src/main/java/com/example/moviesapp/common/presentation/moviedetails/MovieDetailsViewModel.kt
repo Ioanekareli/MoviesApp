@@ -21,12 +21,12 @@ class MovieDetailsViewModel @Inject constructor(
     private val _movieDetails = MutableLiveData<Resource<MovieDetails>>()
 
     init {
-        loadMovieDetails()
+        loadMovieDetails(500)
     }
 
-    private fun loadMovieDetails(){
+    fun loadMovieDetails(movieId:Int){
         viewModelScope.launch {
-            _movieDetails.value = repositoryImpl.getMovieDetails("500")
+            _movieDetails.value = repositoryImpl.getMovieDetails(movieId)
         }
     }
 

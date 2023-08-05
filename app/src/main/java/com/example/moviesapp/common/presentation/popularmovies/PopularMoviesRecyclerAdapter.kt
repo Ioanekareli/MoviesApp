@@ -10,9 +10,8 @@ import com.example.moviesapp.databinding.PopularMoviesRecyclerItemBinding
 import javax.inject.Inject
 
 class PopularMoviesRecyclerAdapter @Inject constructor(
-    val onClick: () -> Unit
-)
-    :RecyclerView.Adapter<PopularMoviesRecyclerAdapter.ViewHolder>(){
+    private val onClick: (movieId:Int) -> Unit
+) :RecyclerView.Adapter<PopularMoviesRecyclerAdapter.ViewHolder>(){
 
     private val popularMovies = mutableListOf<PopularMoviesDetails>()
 
@@ -27,6 +26,9 @@ class PopularMoviesRecyclerAdapter @Inject constructor(
                 releaseDate.text = model.releaseData
                 overview.text = model.overview
                 moviePoster.setImage(ApiConstants.IMG_URL + model.posterPath)
+                itemView.setOnClickListener {
+                    model.id.let { movieId -> onClick.invoke(movieId) }
+                }
             }
         }
     }
@@ -45,9 +47,6 @@ class PopularMoviesRecyclerAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(position)
-        holder.itemView.setOnClickListener {
-            onClick.invoke()
-        }
     }
 
     fun setData(popularMovies:List<PopularMoviesDetails>){

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
+import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.databinding.FragmentPopularMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +34,6 @@ class PopularMoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupUI()
     }
 
@@ -43,13 +43,13 @@ class PopularMoviesFragment : Fragment() {
         observeData(adapter)
     }
 
-    private fun createAdapter():PopularMoviesRecyclerAdapter{
-        return PopularMoviesRecyclerAdapter { navigateToMovieDetails() }
+    private fun onClick(movieId:Int){
+        val bundle = bundleOf("id" to movieId )
+        findNavController().navigate(R.id.movieDetailsFragment,bundle)
     }
 
-    private fun navigateToMovieDetails(){
-        val bundle = bundleOf("id" to id)
-        findNavController().navigate(R.id.movieDetailsFragment,bundle)
+    private fun createAdapter():PopularMoviesRecyclerAdapter{
+        return PopularMoviesRecyclerAdapter(::onClick)
     }
 
     private fun initRecyclerView(

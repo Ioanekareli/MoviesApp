@@ -5,6 +5,6 @@ import com.example.moviesapp.common.utils.Resource
 
 interface MovieDetailsRepository {
 
-    suspend fun getMovieDetails(movieId:String): Resource<MovieDetails>
+    suspend fun getMovieDetails(movieId:Int): Resource<MovieDetails>
 
 }
