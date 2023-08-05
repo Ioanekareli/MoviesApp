@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.moviesapp.R
 import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.presentation.popularmovies.PopularMoviesViewModel
@@ -24,6 +25,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     private var _binding: FragmentMovieDetailsBinding?=null
 
     private val viewModel: MovieDetailsViewModel by viewModels()
+    private val safeArgs:MovieDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +40,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         super.onViewCreated(view, savedInstanceState)
         initListeners()
         setupUI()
+        loadMovieDetails()
     }
 
     private fun setupUI(){
@@ -52,6 +55,10 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun navigateToPopularMovies(){
         findNavController().popBackStack()
+    }
+
+    private fun loadMovieDetails(){
+        viewModel.loadMovieDetails(safeArgs.id)
     }
 
     private fun observeData(){

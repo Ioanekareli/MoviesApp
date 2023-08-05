@@ -12,7 +12,7 @@ class MovieDetailsRepositoryImpl @Inject constructor(
     private val movieDetailsApiService: MovieDetailsApiService,
     private val movieDetailsMapper: MovieDetailsMapper
     ):MovieDetailsRepository {
-    override suspend fun getMovieDetails(movieId: String): Resource<MovieDetails> {
+    override suspend fun getMovieDetails(movieId: Int): Resource<MovieDetails> {
         return try {
             val response = movieDetailsApiService.getMovieDetails(
                 apiKey = ApiConstants.API_KEY,

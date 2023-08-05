@@ -11,7 +11,7 @@ interface MovieDetailsApiService {
 
     @GET(ApiConstants.MOVIE_DETAILS_ENDPOINT)
     suspend fun getMovieDetails(
-        @Path("movie_id") movieId:String,
+        @Path("movie_id") movieId:Int,
         @Query("api_key") apiKey:String
     ):Response<MovieDetailsDto>
 
