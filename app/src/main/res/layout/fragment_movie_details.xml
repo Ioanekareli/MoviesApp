@@ -10,7 +10,7 @@
         android:id="@+id/fragmentDetailsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/mid_grey">
+        android:background="@color/body_grey">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/errorText"
@@ -39,7 +39,8 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/moviesPosterLarge"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,11 +58,10 @@
             android:id="@+id/movieTitle"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_regular"
             android:letterSpacing="0.02"
             android:maxLines="2"
-            android:text="Spider-Man: Across the Spider-Verse"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@color/transparent_grey"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
@@ -85,7 +85,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:lines="2"
-            android:text="Joaquim Dos Santos, Justin K. Thompson , Kemp Powers"
             android:textColor="@color/lighter_header_grey"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
@@ -95,7 +94,6 @@
             android:id="@+id/runtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="140"
             android:textSize="15sp"
             android:textColor="@color/header_grey"
             android:fontFamily="@font/poppins_medium"
@@ -134,7 +132,6 @@
             android:id="@+id/budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="70000000"
             android:textSize="14sp"
             android:textColor="@color/header_grey"
             android:fontFamily="@font/poppins_medium"
@@ -160,7 +157,6 @@
             android:id="@+id/moviePosterSmall"
             android:layout_width="100dp"
             android:layout_height="170dp"
-            android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
             app:layout_constraintEnd_toStartOf="@+id/verticalEnd"
             app:layout_constraintTop_toBottomOf="@+id/moviesPosterLarge" />
@@ -178,7 +174,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
             android:lines="3"
-            android:text="After reuniting with Gwen Stacy, Brooklyn's full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence."
             android:textAlignment="center"
             android:textColor="@color/header_grey"
             android:textSize="14sp"
@@ -201,10 +196,26 @@
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/youtubePlayer"
             android:layout_width="0dp"
-            android:layout_height="170dp"
-            app:layout_constraintEnd_toStartOf="@+id/verticalEnd"
-            app:layout_constraintStart_toStartOf="@+id/verticalStart"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/showMoreTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/trailerMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Trailer not Available"
+            android:textColor="@color/transparent_grey"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/youtubePlayer"
+            app:layout_constraintBottom_toBottomOf="@id/youtubePlayer"/>
+
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/cardViewPager"

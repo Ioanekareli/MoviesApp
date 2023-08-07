@@ -24,7 +24,6 @@ class PopularMoviesRecyclerAdapter @Inject constructor(
                 movieTitle.text = model.title
                 moviePopularity.text = model.popularity.toString()
                 releaseDate.text = model.releaseData
-                overview.text = model.overview
                 moviePoster.setImage(ApiConstants.IMG_URL + model.posterPath)
                 itemView.setOnClickListener {
                     model.id.let { movieId -> onClick.invoke(movieId) }
