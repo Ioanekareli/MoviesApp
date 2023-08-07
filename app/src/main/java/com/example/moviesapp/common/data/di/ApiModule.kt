@@ -3,6 +3,7 @@ package com.example.moviesapp.common.data.di
 import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.data.api.api_service.MovieDetailsApiService
 import com.example.moviesapp.common.data.api.api_service.PopularMoviesApiService
+import com.example.moviesapp.common.data.api.api_service.TrailerApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,4 +36,13 @@ object ApiModule{
             .create(MovieDetailsApiService::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun trailerApiService():TrailerApiService{
+        return Retrofit.Builder()
+            .baseUrl(ApiConstants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(TrailerApiService::class.java)
+    }
 }
