@@ -2,15 +2,21 @@ package com.example.moviesapp.common.data.di
 
 import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieDetailsMapper
+import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieGenreMapper
+import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.ProductionCountryMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesListMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.trailerMapper.TrailerListMapper
 import com.example.moviesapp.common.data.api.api_mapper.trailerMapper.TrailerMapper
+import com.example.moviesapp.common.data.api.dto.moviedetailsDto.GenreDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.MovieDetailsDto
+import com.example.moviesapp.common.data.api.dto.moviedetailsDto.ProductionCountryDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDetailsDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import com.example.moviesapp.common.data.api.dto.trailerDto.TrailerDto
 import com.example.moviesapp.common.data.api.dto.trailerDto.TrailerListDto
+import com.example.moviesapp.common.domain.model.moviedetails.Countries
+import com.example.moviesapp.common.domain.model.moviedetails.Genre
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
@@ -39,5 +45,11 @@ interface MappersBindingModule {
 
     @Binds
     fun provideTrailerListMapper(trailerListMapper:TrailerListMapper):ApiMapper<TrailerListDto,TrailerList>
+
+    @Binds
+    fun provideGenreMapper(genreMapper: MovieGenreMapper):ApiMapper<GenreDto,Genre>
+
+    @Binds
+    fun provideProductionCountriesMapper(productionCountryMapper: ProductionCountryMapper):ApiMapper<ProductionCountryDto,Countries>
 
 }

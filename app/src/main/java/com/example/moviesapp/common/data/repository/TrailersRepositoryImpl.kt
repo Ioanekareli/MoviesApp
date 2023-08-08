@@ -8,7 +8,7 @@ import com.example.moviesapp.common.domain.repository.TrailerRepository
 import com.example.moviesapp.common.utils.Resource
 import javax.inject.Inject
 
-class TrailerRepositoryImpl @Inject constructor(
+class TrailersRepositoryImpl @Inject constructor(
     private val trailerApiService: TrailerApiService,
     private val trailerMapper: TrailerMapper
 ):TrailerRepository {

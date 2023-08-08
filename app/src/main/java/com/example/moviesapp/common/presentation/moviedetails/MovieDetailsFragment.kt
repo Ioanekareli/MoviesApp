@@ -9,15 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.room.util.joinIntoString
 import com.example.moviesapp.R
 import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.FragmentMovieDetailsBinding
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.loadOrCueVideo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -89,7 +88,21 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
                         moviesPosterLarge.setImage(ApiConstants.IMG_URL + movieDetails.data.backdropPath)
                         movieTitle.text = movieDetails.data.title
                         runtime.text = movieDetails.data.runtime.toString()
-                        budget.text = movieDetails.data.revenue.toString()
+                        budget.text = movieDetails.data.budget.toString()
+                        binding.genres.text = movieDetails.data.genre.let { genreList ->
+                            var res = ""
+                            for(i in genreList){
+                                res+=i.name + " "
+                            }
+                            res
+                        }
+                        binding.countries.text = movieDetails.data.countries.let { countryList ->
+                            var res = ""
+                            for (i in countryList){
+                                res+=i.name + " "
+                            }
+                            res
+                        }
                         movieOverview.text = movieDetails.data.overview
                     }
                 }
@@ -155,10 +168,8 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun showLess(){
         val movieOverview = binding.movieOverview
-        if (movieOverview.lineCount > 3){
-            movieOverview.setLines(3)
-            binding.showMoreTv.isVisible = true
-        }
+        movieOverview.setLines(3)
+        binding.showMoreTv.isVisible = true
     }
 
     override fun onDestroyView() {

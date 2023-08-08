@@ -6,7 +6,10 @@ import com.example.moviesapp.common.data.api.dto.moviedetailsDto.MovieDetailsDto
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
 import javax.inject.Inject
 
-class MovieDetailsMapper @Inject constructor():ApiMapper<MovieDetailsDto,MovieDetails> {
+class MovieDetailsMapper @Inject constructor(
+    private val genreMapper: MovieGenreMapper,
+    private val productionCountryMapper: ProductionCountryMapper
+):ApiMapper<MovieDetailsDto,MovieDetails> {
     override fun mapToDomain(apiEntity: MovieDetailsDto): MovieDetails {
         with(apiEntity){
             return MovieDetails(
@@ -14,10 +17,12 @@ class MovieDetailsMapper @Inject constructor():ApiMapper<MovieDetailsDto,MovieDe
                 backdropPath = backdropPath.orEmpty(),
                 overview = overview.orEmpty(),
                 posterPath = posterPath.orEmpty(),
-                revenue = revenue?:0,
+                budget = budget?:0,
                 runtime = runtime?:0,
                 title = title.orEmpty(),
                 video = video?:false,
+                genre = genreMapper.mapListToDomain(genres.orEmpty()),
+                countries = productionCountryMapper.mapListToDomain(productionCountries.orEmpty())
             )
         }
     }

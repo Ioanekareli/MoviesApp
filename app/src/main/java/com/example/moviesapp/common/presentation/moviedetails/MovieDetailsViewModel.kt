@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
-import com.example.moviesapp.common.data.repository.TrailerRepositoryImpl
+import com.example.moviesapp.common.data.repository.TrailersRepositoryImpl
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
 import com.example.moviesapp.common.domain.model.trailer.Trailer
 import com.example.moviesapp.common.utils.Resource
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
     private val movieDetailsRepositoryImpl: MovieDetailsRepositoryImpl,
-    private val trailerRepositoryImpl: TrailerRepositoryImpl
+    private val trailerRepositoryImpl: TrailersRepositoryImpl
 ):ViewModel() {
 
 

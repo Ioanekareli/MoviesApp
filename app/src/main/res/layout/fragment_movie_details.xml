@@ -39,7 +39,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/moviesPosterLarge"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="200dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,101 +63,128 @@
             android:maxLines="2"
             android:textAlignment="textStart"
             android:textColor="@color/transparent_grey"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
             app:layout_constraintTop_toBottomOf="@+id/moviesPosterLarge" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/movieDirectorTv"
+            android:id="@+id/genresTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:text="DIRECTED BY"
+            android:text="GENRES"
             android:textColor="@color/header_grey"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
             app:layout_constraintTop_toBottomOf="@id/movieTitle" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/movieDirectorName"
+            android:id="@+id/genres"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
-            android:lines="2"
-            android:textColor="@color/lighter_header_grey"
-            android:textSize="16sp"
+            android:textColor="@color/transparent_grey"
+            android:textSize="14sp"
+            android:autoSizeStepGranularity="2dp"
+            android:autoSizeTextType="uniform"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
-            app:layout_constraintTop_toBottomOf="@id/movieDirectorTv" />
+            app:layout_constraintTop_toBottomOf="@id/genresTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countriesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="COUNTRIES"
+            android:textColor="@color/header_grey"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/verticalStart"
+            app:layout_constraintTop_toBottomOf="@id/genres"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countries"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:autoSizeStepGranularity="2dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/transparent_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/verticalStart"
+            app:layout_constraintTop_toBottomOf="@+id/countriesTv" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/runtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@color/header_grey"
             android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="16dp"
+            android:textColor="@color/header_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
             app:layout_constraintStart_toStartOf="@id/verticalStart"
-            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+            app:layout_constraintTop_toBottomOf="@+id/moviePosterSmall" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/runtimeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mins"
-            android:textSize="15sp"
-            android:textColor="@color/header_grey"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="4dp"
+            android:fontFamily="@font/poppins_regular"
             android:letterSpacing="0.1"
+            android:text="mins"
+            android:textColor="@color/transparent_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
             app:layout_constraintStart_toEndOf="@id/runtime"
-            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+            app:layout_constraintTop_toBottomOf="@+id/moviePosterSmall" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/budgetTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BUDGET :"
-            android:textSize="14sp"
-            android:textColor="@color/lighter_header_grey"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="BUDGET :"
+            android:textColor="@color/header_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
             app:layout_constraintStart_toEndOf="@id/runtimeTv"
-            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+            app:layout_constraintTop_toBottomOf="@+id/moviePosterSmall" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/header_grey"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="4dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/header_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
             app:layout_constraintStart_toEndOf="@id/budgetTv"
-            app:layout_constraintTop_toBottomOf="@id/movieDirectorName"/>
+            app:layout_constraintTop_toBottomOf="@+id/moviePosterSmall" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/usd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:fontFamily="@font/poppins_semi_bold"
             android:text="$"
-            android:textColor="@color/lighter_header_grey"
+            android:textColor="@color/transparent_grey"
             android:textSize="16sp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
             app:layout_constraintStart_toEndOf="@id/budget"
-            app:layout_constraintTop_toBottomOf="@+id/movieDirectorName" />
+            app:layout_constraintTop_toBottomOf="@+id/moviePosterSmall" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/moviePosterSmall"
             android:layout_width="100dp"
             android:layout_height="170dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineBeforeOverview"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toStartOf="@+id/verticalEnd"
             app:layout_constraintTop_toBottomOf="@+id/moviesPosterLarge" />
 
@@ -166,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="350dp" />
+            app:layout_constraintGuide_begin="413dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/movieOverview"
@@ -177,6 +204,7 @@
             android:textAlignment="center"
             android:textColor="@color/header_grey"
             android:textSize="14sp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@id/verticalStart"
             app:layout_constraintEnd_toEndOf="@id/verticalEnd"
             app:layout_constraintTop_toBottomOf="@id/guidelineBeforeOverview" />
