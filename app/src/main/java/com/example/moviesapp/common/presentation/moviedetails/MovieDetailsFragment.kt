@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.room.util.joinIntoString
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
 import com.example.moviesapp.common.data.api.ApiConstants
+import com.example.moviesapp.common.presentation.moviedetails.adapters.CastAdapter
+import com.example.moviesapp.common.presentation.moviedetails.adapters.CrewAdapter
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.FragmentMovieDetailsBinding
@@ -43,6 +45,8 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         setupUI()
         loadMovieDetails()
         loadTrailer(safeArgs.id)
+        loadCast(safeArgs.id)
+        loadCrew(safeArgs.id)
 //        setupYoutubePlayer()
     }
 
@@ -62,8 +66,50 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     }
 
     private fun setupUI(){
+        setUpCastUi()
+        setUpCrewUi()
         observeMovieDetails()
         observerTrailer()
+    }
+
+    private fun setUpCastUi(){
+        val castAdapter = createCastAdapter()
+        initCastRecyclerView(castAdapter)
+        observeCast(castAdapter)
+    }
+
+    private fun setUpCrewUi(){
+        val crewAdapter = createCrewAdapter()
+        initCrewRecyclerView(crewAdapter)
+        observeCrew(crewAdapter)
+    }
+
+    private fun createCastAdapter():CastAdapter{
+        return CastAdapter()
+    }
+
+    private fun createCrewAdapter():CrewAdapter{
+        return CrewAdapter()
+    }
+
+    private fun initCastRecyclerView(
+        castAdapter: CastAdapter
+    ){
+        binding.castRecycler.apply {
+            adapter = castAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            setHasFixedSize(false)
+        }
+    }
+
+    private fun initCrewRecyclerView(
+        crewAdapter: CrewAdapter
+    ){
+        binding.crewRecycler.apply {
+            adapter = crewAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            setHasFixedSize(false)
+        }
     }
 
     private fun navigateToPopularMovies(){
@@ -76,6 +122,14 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun loadTrailer(movieId:Int){
         viewModel.getTrailer(movieId)
+    }
+
+    private fun loadCast(movieId: Int){
+        viewModel.loadCredits(movieId)
+    }
+
+    private fun loadCrew(movieId: Int){
+        viewModel.loadCredits(movieId)
     }
 
     private fun observeMovieDetails(){
@@ -140,6 +194,38 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
                 }
                 else ->{
                     trailerNotAvailable()
+                }
+            }
+        }
+    }
+
+    private fun observeCast(adapter: CastAdapter){
+        viewModel.credits.observe(viewLifecycleOwner){ cast ->
+            when(cast){
+                is Resource.Success -> {
+                    adapter.setData(cast.data.castDetails)
+                }
+                is Resource.Error -> {
+                    binding.errorText.isVisible = true
+                }
+                else ->{
+                    binding.errorText.isVisible = true
+                }
+            }
+        }
+    }
+
+    private fun observeCrew(adapter: CrewAdapter){
+        viewModel.credits.observe(viewLifecycleOwner){ crew ->
+            when(crew){
+                is Resource.Success -> {
+                    adapter.setData(crew.data.crewDetails)
+                }
+                is Resource.Error -> {
+                    binding.errorText.isVisible = true
+                }
+                else ->{
+                    binding.errorText.isVisible = true
                 }
             }
         }

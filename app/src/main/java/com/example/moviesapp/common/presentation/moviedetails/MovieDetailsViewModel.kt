@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.TrailersRepositoryImpl
+import com.example.moviesapp.common.domain.model.castcrew.Credits
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
 import com.example.moviesapp.common.domain.model.trailer.Trailer
 import com.example.moviesapp.common.utils.Resource
@@ -16,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
     private val movieDetailsRepositoryImpl: MovieDetailsRepositoryImpl,
-    private val trailerRepositoryImpl: TrailersRepositoryImpl
+    private val trailerRepositoryImpl: TrailersRepositoryImpl,
+    private val creditsRepositoryImpl: CreditsRepositoryImpl
 ):ViewModel() {
 
 
@@ -25,6 +28,9 @@ class MovieDetailsViewModel @Inject constructor(
 
     val trailer:LiveData<Resource<Trailer>> get() = _trailer
     private val _trailer = MutableLiveData<Resource<Trailer>>()
+
+    val credits:LiveData<Resource<Credits>> get() = _credits
+    private val _credits = MutableLiveData<Resource<Credits>>()
 
     fun loadMovieDetails(movieId:Int){
         viewModelScope.launch {
@@ -35,6 +41,12 @@ class MovieDetailsViewModel @Inject constructor(
     fun getTrailer(movieId: Int){
         viewModelScope.launch {
             _trailer.value = trailerRepositoryImpl.getTrailer(movieId)
+        }
+    }
+
+    fun loadCredits(movieId:Int){
+        viewModelScope.launch {
+            _credits.value = creditsRepositoryImpl.getCastAndCrew(movieId)
         }
     }
 

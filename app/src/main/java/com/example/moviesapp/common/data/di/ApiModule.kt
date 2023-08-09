@@ -1,6 +1,7 @@
 package com.example.moviesapp.common.data.di
 
 import com.example.moviesapp.common.data.api.ApiConstants
+import com.example.moviesapp.common.data.api.api_service.CreditsApiService
 import com.example.moviesapp.common.data.api.api_service.MovieDetailsApiService
 import com.example.moviesapp.common.data.api.api_service.PopularMoviesApiService
 import com.example.moviesapp.common.data.api.api_service.TrailerApiService
@@ -44,5 +45,15 @@ object ApiModule{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(TrailerApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun CastApiService(): CreditsApiService {
+        return Retrofit.Builder()
+            .baseUrl(ApiConstants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(CreditsApiService::class.java)
     }
 }

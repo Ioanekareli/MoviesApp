@@ -1,7 +1,9 @@
 package com.example.moviesapp.common.data.di
 
+import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.PopularMoviesRepositoryImpl
+import com.example.moviesapp.common.domain.repository.CreditsRepository
 import com.example.moviesapp.common.domain.repository.MovieDetailsRepository
 import com.example.moviesapp.common.domain.repository.PopularMoviesRepository
 import dagger.Binds
@@ -18,5 +20,8 @@ abstract class RepositoryBindingModule {
 
     @Binds
     abstract fun bindMovieDetailsRepository(movieDetailsRepositoryImpl: MovieDetailsRepositoryImpl):MovieDetailsRepository
+
+    @Binds
+    abstract fun bindCreditsRepository(creditsRepositoryImpl: CreditsRepositoryImpl):CreditsRepository
 
 }
