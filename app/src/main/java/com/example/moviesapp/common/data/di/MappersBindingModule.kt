@@ -1,6 +1,9 @@
 package com.example.moviesapp.common.data.di
 
 import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
+import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CastMapper
+import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CreditsMapper
+import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CrewMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieDetailsMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieGenreMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.ProductionCountryMapper
@@ -8,6 +11,9 @@ import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.Popu
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.trailerMapper.TrailerListMapper
 import com.example.moviesapp.common.data.api.api_mapper.trailerMapper.TrailerMapper
+import com.example.moviesapp.common.data.api.dto.castcrewDto.CastDetailsDto
+import com.example.moviesapp.common.data.api.dto.castcrewDto.CreditsDto
+import com.example.moviesapp.common.data.api.dto.castcrewDto.CrewDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.GenreDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.MovieDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.ProductionCountryDto
@@ -15,6 +21,9 @@ import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesD
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import com.example.moviesapp.common.data.api.dto.trailerDto.TrailerDto
 import com.example.moviesapp.common.data.api.dto.trailerDto.TrailerListDto
+import com.example.moviesapp.common.domain.model.castcrew.Cast
+import com.example.moviesapp.common.domain.model.castcrew.Credits
+import com.example.moviesapp.common.domain.model.castcrew.Crew
 import com.example.moviesapp.common.domain.model.moviedetails.Countries
 import com.example.moviesapp.common.domain.model.moviedetails.Genre
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
@@ -51,5 +60,14 @@ interface MappersBindingModule {
 
     @Binds
     fun provideProductionCountriesMapper(productionCountryMapper: ProductionCountryMapper):ApiMapper<ProductionCountryDto,Countries>
+
+    @Binds
+    fun provideCreditsMapper(creditsMapper: CreditsMapper):ApiMapper<CreditsDto,Credits>
+
+    @Binds
+    fun provideCastMapper(castMapper: CastMapper):ApiMapper<CastDetailsDto,Cast>
+
+    @Binds
+    fun provideCrewMapper(crewMapper: CrewMapper):ApiMapper<CrewDetailsDto,Crew>
 
 }

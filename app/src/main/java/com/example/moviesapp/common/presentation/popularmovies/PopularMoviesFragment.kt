@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
-import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.databinding.FragmentPopularMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint

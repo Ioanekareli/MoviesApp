@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/crewPic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+        app:strokeColor="@color/transparent_grey"
+        app:strokeWidth="1dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/crewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Christoph waltz"
+        android:textColor="@color/header_grey"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/crewPic"
+        app:layout_constraintStart_toStartOf="@+id/crewPic"
+        app:layout_constraintTop_toBottomOf="@id/crewPic" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Christoph waltz"
+        android:textColor="@color/header_grey"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/crewPic"
+        app:layout_constraintStart_toStartOf="@+id/crewPic"
+        app:layout_constraintTop_toBottomOf="@id/crewName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

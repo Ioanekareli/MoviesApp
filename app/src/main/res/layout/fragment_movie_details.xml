@@ -39,7 +39,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/moviesPosterLarge"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="210dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
             android:id="@+id/backBtn"
             android:layout_width="28dp"
             android:layout_height="25dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/arrow_back"
             app:layout_constraintStart_toStartOf="@+id/verticalStart"
             app:layout_constraintTop_toTopOf="parent" />
@@ -267,14 +267,40 @@
             app:layout_constraintTop_toBottomOf="@id/cardViewPager"
             app:layout_constraintStart_toStartOf="@id/verticalStart"/>
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/castViewPager"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/castRecycler"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginTop="2dp"
+            android:scrollbars="horizontal"
+            tools:listitem="@layout/cast_recycler_item"
             app:layout_constraintStart_toStartOf="@id/verticalStart"
             app:layout_constraintEnd_toEndOf="@id/verticalEnd"
             app:layout_constraintTop_toBottomOf="@+id/castTV"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/crewTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crew"
+            android:textColor="@color/header_grey"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.1"
+            app:layout_constraintTop_toBottomOf="@id/castRecycler"
+            app:layout_constraintStart_toStartOf="@id/verticalStart"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/crewRecycler"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="2dp"
+            android:scrollbars="horizontal"
+            tools:listitem="@layout/crew_recycler_item"
+            app:layout_constraintStart_toStartOf="@id/verticalStart"
+            app:layout_constraintEnd_toEndOf="@id/verticalEnd"
+            app:layout_constraintTop_toBottomOf="@+id/crewTV"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/similarMoviesTv"
@@ -287,7 +313,7 @@
             android:textColor="@color/header_grey"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/verticalStart"
-            app:layout_constraintTop_toBottomOf="@id/castViewPager" />
+            app:layout_constraintTop_toBottomOf="@id/crewRecycler" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/similarMoviesViewPager"
