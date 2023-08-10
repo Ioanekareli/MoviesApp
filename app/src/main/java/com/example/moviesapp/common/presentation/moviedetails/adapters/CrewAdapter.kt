@@ -21,7 +21,10 @@ class CrewAdapter @Inject constructor()
         fun onBind(position:Int){
             val model = crew[position]
             with(binding){
-                crewPic.setImage(ApiConstants.IMG_URL + model.profile)
+                if (model.profile.isNotEmpty())
+                    crewPic.setImage(ApiConstants.IMG_URL + model.profile)
+                else
+                    crewPic.setImageResource(R.drawable.person_icon)
                 crewName.text= model.name
                 job.text = model.job
             }

@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
+import com.example.moviesapp.common.data.repository.SimilarMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.TrailersRepositoryImpl
 import com.example.moviesapp.common.domain.model.castcrew.Credits
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
+import com.example.moviesapp.common.domain.model.similarmovies.SimilarMovies
 import com.example.moviesapp.common.domain.model.trailer.Trailer
 import com.example.moviesapp.common.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +21,8 @@ import javax.inject.Inject
 class MovieDetailsViewModel @Inject constructor(
     private val movieDetailsRepositoryImpl: MovieDetailsRepositoryImpl,
     private val trailerRepositoryImpl: TrailersRepositoryImpl,
-    private val creditsRepositoryImpl: CreditsRepositoryImpl
+    private val creditsRepositoryImpl: CreditsRepositoryImpl,
+    private val similarMoviesRepositoryImpl: SimilarMoviesRepositoryImpl
 ):ViewModel() {
 
 
@@ -31,6 +34,9 @@ class MovieDetailsViewModel @Inject constructor(
 
     val credits:LiveData<Resource<Credits>> get() = _credits
     private val _credits = MutableLiveData<Resource<Credits>>()
+
+    val similarMovies:LiveData<Resource<SimilarMovies>> get() = _similarMovies
+    private val _similarMovies = MutableLiveData<Resource<SimilarMovies>>()
 
     fun loadMovieDetails(movieId:Int){
         viewModelScope.launch {
@@ -47,6 +53,12 @@ class MovieDetailsViewModel @Inject constructor(
     fun loadCredits(movieId:Int){
         viewModelScope.launch {
             _credits.value = creditsRepositoryImpl.getCastAndCrew(movieId)
+        }
+    }
+
+    fun loadSimilarMovies(movieId: Int){
+        viewModelScope.launch {
+            _similarMovies.value = similarMoviesRepositoryImpl.getSimilarMovies(movieId)
         }
     }
 

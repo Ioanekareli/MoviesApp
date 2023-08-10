@@ -3,9 +3,11 @@ package com.example.moviesapp.common.data.di
 import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.PopularMoviesRepositoryImpl
+import com.example.moviesapp.common.data.repository.SimilarMoviesRepositoryImpl
 import com.example.moviesapp.common.domain.repository.CreditsRepository
 import com.example.moviesapp.common.domain.repository.MovieDetailsRepository
 import com.example.moviesapp.common.domain.repository.PopularMoviesRepository
+import com.example.moviesapp.common.domain.repository.SimilarMoviesRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -23,5 +25,8 @@ abstract class RepositoryBindingModule {
 
     @Binds
     abstract fun bindCreditsRepository(creditsRepositoryImpl: CreditsRepositoryImpl):CreditsRepository
+
+    @Binds
+    abstract fun bindSimilarMoviesRepository(similarMoviesRepositoryImpl: SimilarMoviesRepositoryImpl):SimilarMoviesRepository
 
 }

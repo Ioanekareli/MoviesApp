@@ -16,6 +16,7 @@ import com.example.moviesapp.common.domain.model.box.Box
 import com.example.moviesapp.common.presentation.moviedetails.adapters.BoxAdapter
 import com.example.moviesapp.common.presentation.moviedetails.adapters.CastAdapter
 import com.example.moviesapp.common.presentation.moviedetails.adapters.CrewAdapter
+import com.example.moviesapp.common.presentation.moviedetails.adapters.SimilarMoviesAdapter
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.FragmentMovieDetailsBinding
@@ -49,6 +50,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         loadTrailer(safeArgs.id)
         loadCast(safeArgs.id)
         loadCrew(safeArgs.id)
+        loadSimilarMovies(safeArgs.id)
 //        setupYoutubePlayer()
     }
 
@@ -71,6 +73,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         setUpCastUi()
         setUpCrewUi()
         setUpBoxUi()
+        setUpSimilarMoviesUi()
         observeMovieDetails()
         observerTrailer()
     }
@@ -93,6 +96,11 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         observeBox(boxAdapter)
     }
 
+    private fun setUpSimilarMoviesUi(){
+        val adapter = createSimilarMoviesAdapter()
+        initSimilarMoviesRecyclerView(adapter)
+        observeSimilarMovies(adapter)
+    }
     private fun createCastAdapter():CastAdapter{
         return CastAdapter()
     }
@@ -103,6 +111,10 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun createBoxAdapter():BoxAdapter{
         return BoxAdapter()
+    }
+
+    private fun createSimilarMoviesAdapter():SimilarMoviesAdapter{
+        return SimilarMoviesAdapter()
     }
 
     private fun initCastRecyclerView(
@@ -133,6 +145,16 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         }
     }
+
+    private fun initSimilarMoviesRecyclerView(
+        similarMoviesAdapter: SimilarMoviesAdapter
+    ){
+        binding.similarMoviesRecycler.apply {
+            adapter = similarMoviesAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        }
+    }
+
     private fun navigateToPopularMovies(){
         findNavController().popBackStack()
     }
@@ -155,6 +177,10 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun loadCrew(movieId: Int){
         viewModel.loadCredits(movieId)
+    }
+
+    private fun loadSimilarMovies(movieId: Int){
+        viewModel.loadSimilarMovies(movieId)
     }
 
     private fun observeMovieDetails(){
@@ -245,6 +271,22 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
             when(crew){
                 is Resource.Success -> {
                     adapter.setData(crew.data.crewDetails)
+                }
+                is Resource.Error -> {
+                    binding.errorText.isVisible = true
+                }
+                else ->{
+                    binding.errorText.isVisible = true
+                }
+            }
+        }
+    }
+
+    private fun observeSimilarMovies(adapter: SimilarMoviesAdapter){
+        viewModel.similarMovies.observe(viewLifecycleOwner){similarMovies ->
+            when(similarMovies){
+                is Resource.Success ->{
+                    adapter.setData(similarMovies.data.results)
                 }
                 is Resource.Error -> {
                     binding.errorText.isVisible = true
