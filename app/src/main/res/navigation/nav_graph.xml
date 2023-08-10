@@ -28,10 +28,18 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_moviePostersFragment"
+            app:destination="@id/moviePostersFragment" />
     </fragment>
     <fragment
         android:id="@+id/reviewsFragment"
         android:name="com.example.moviesapp.common.presentation.reviews.ReviewsFragment"
         android:label="fragment_reviews"
         tools:layout="@layout/fragment_reviews" />
+    <fragment
+        android:id="@+id/moviePostersFragment"
+        android:name="com.example.moviesapp.common.presentation.poster.MoviePostersFragment"
+        android:label="fragment_movie_posters"
+        tools:layout="@layout/fragment_movie_posters" />
 </navigation>

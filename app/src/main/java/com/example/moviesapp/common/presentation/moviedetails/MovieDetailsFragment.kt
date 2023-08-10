@@ -137,6 +137,10 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         findNavController().popBackStack()
     }
 
+    private fun navigateToMoviePoster(){
+        findNavController().navigate(R.id.moviePostersFragment)
+    }
+
     private fun loadMovieDetails(){
         viewModel.loadMovieDetails(safeArgs.id)
     }
