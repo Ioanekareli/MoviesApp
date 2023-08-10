@@ -12,6 +12,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
 import com.example.moviesapp.common.data.api.ApiConstants
+import com.example.moviesapp.common.domain.model.box.Box
+import com.example.moviesapp.common.presentation.moviedetails.adapters.BoxAdapter
 import com.example.moviesapp.common.presentation.moviedetails.adapters.CastAdapter
 import com.example.moviesapp.common.presentation.moviedetails.adapters.CrewAdapter
 import com.example.moviesapp.common.utils.Resource
@@ -68,6 +70,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     private fun setupUI(){
         setUpCastUi()
         setUpCrewUi()
+        setUpBoxUi()
         observeMovieDetails()
         observerTrailer()
     }
@@ -84,12 +87,22 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         observeCrew(crewAdapter)
     }
 
+    private fun setUpBoxUi(){
+        val boxAdapter = createBoxAdapter()
+        initBoxRecyclerView(boxAdapter)
+        observeBox(boxAdapter)
+    }
+
     private fun createCastAdapter():CastAdapter{
         return CastAdapter()
     }
 
     private fun createCrewAdapter():CrewAdapter{
         return CrewAdapter()
+    }
+
+    private fun createBoxAdapter():BoxAdapter{
+        return BoxAdapter()
     }
 
     private fun initCastRecyclerView(
@@ -112,6 +125,14 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         }
     }
 
+    private fun initBoxRecyclerView(
+        boxAdapter: BoxAdapter
+    ){
+        binding.boxRecycler.apply {
+            adapter = boxAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        }
+    }
     private fun navigateToPopularMovies(){
         findNavController().popBackStack()
     }
@@ -229,6 +250,15 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
                 }
             }
         }
+    }
+
+    private fun observeBox(adapter: BoxAdapter){
+        val boxList = listOf(
+            Box(R.drawable.eye_icon,"Reviews",R.drawable.box_card_view_design_red),
+            Box(R.drawable.camera_icon,"Movie Lists",R.drawable.box_card_view_design_blue),
+            Box(R.drawable.image_icon,"Posters",R.drawable.box_card_view_design_green),
+        )
+        adapter.setData(boxList)
     }
 
     private fun initYoutubePlayer(youtubeId:String){
