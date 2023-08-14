@@ -5,6 +5,7 @@ import com.example.moviesapp.common.data.api.api_service.CreditsApiService
 import com.example.moviesapp.common.data.api.api_service.MovieDetailsApiService
 import com.example.moviesapp.common.data.api.api_service.PopularMoviesApiService
 import com.example.moviesapp.common.data.api.api_service.SimilarMoviesApiService
+import com.example.moviesapp.common.data.api.api_service.TopRatedMoviesApiService
 import com.example.moviesapp.common.data.api.api_service.TrailerApiService
 import dagger.Module
 import dagger.Provides
@@ -67,5 +68,15 @@ object ApiModule{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(SimilarMoviesApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun topRatedMoviesList():TopRatedMoviesApiService{
+        return Retrofit.Builder()
+            .baseUrl(ApiConstants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(TopRatedMoviesApiService::class.java)
     }
 }

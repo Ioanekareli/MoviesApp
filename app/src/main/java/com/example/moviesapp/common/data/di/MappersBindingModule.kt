@@ -11,6 +11,8 @@ import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.Popu
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.similarmoviesmapper.SimilarMoviesDetailsMapper
 import com.example.moviesapp.common.data.api.api_mapper.similarmoviesmapper.SimilarMoviesMapper
+import com.example.moviesapp.common.data.api.api_mapper.topratedmoviesmapper.TopRatedMoviesListMapper
+import com.example.moviesapp.common.data.api.api_mapper.topratedmoviesmapper.TopRatedMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.trailerMapper.TrailerListMapper
 import com.example.moviesapp.common.data.api.api_mapper.trailerMapper.TrailerMapper
 import com.example.moviesapp.common.data.api.dto.castcrewDto.CastDetailsDto
@@ -23,6 +25,8 @@ import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesD
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import com.example.moviesapp.common.data.api.dto.similarmoviesDto.SimilarMoviesDetailsDto
 import com.example.moviesapp.common.data.api.dto.similarmoviesDto.SimilarMoviesDto
+import com.example.moviesapp.common.data.api.dto.topratedmoviesDto.TopRatedMoviesDto
+import com.example.moviesapp.common.data.api.dto.topratedmoviesDto.TopRatedMoviesListDto
 import com.example.moviesapp.common.data.api.dto.trailerDto.TrailerDto
 import com.example.moviesapp.common.data.api.dto.trailerDto.TrailerListDto
 import com.example.moviesapp.common.domain.model.castcrew.Cast
@@ -35,6 +39,8 @@ import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.domain.model.similarmovies.SimilarMovies
 import com.example.moviesapp.common.domain.model.similarmovies.SimilarMoviesDetails
+import com.example.moviesapp.common.domain.model.topratedmovies.TopRatedMovies
+import com.example.moviesapp.common.domain.model.topratedmovies.TopRatedMoviesList
 import com.example.moviesapp.common.domain.model.trailer.Trailer
 import com.example.moviesapp.common.domain.model.trailer.TrailerList
 import dagger.Binds
@@ -81,5 +87,11 @@ interface MappersBindingModule {
 
     @Binds
     fun provideSimilarMoviesDetailsMapper(similarMoviesDetailsMapper: SimilarMoviesDetailsMapper):ApiMapper<SimilarMoviesDetailsDto,SimilarMoviesDetails>
+
+    @Binds
+    fun provideTopRatedMoviesListMapper(topRatedMoviesListMapper: TopRatedMoviesListMapper):ApiMapper<TopRatedMoviesListDto,TopRatedMoviesList>
+
+    @Binds
+    fun provideTopRatedMoviesMapper(topRatedMoviesMapper: TopRatedMoviesMapper):ApiMapper<TopRatedMoviesDto, TopRatedMovies>
 
 }

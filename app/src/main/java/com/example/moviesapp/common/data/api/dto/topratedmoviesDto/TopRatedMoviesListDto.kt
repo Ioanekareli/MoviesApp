@@ -1,8 +1,8 @@
-package com.example.moviesapp.common.data.api.dto.similarmoviesDto
+package com.example.moviesapp.common.data.api.dto.topratedmoviesDto
 
 import com.google.gson.annotations.SerializedName
 
-data class SimilarMoviesDetailsDto(
+data class TopRatedMoviesListDto(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,

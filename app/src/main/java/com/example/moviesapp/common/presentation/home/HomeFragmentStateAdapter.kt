@@ -15,6 +15,6 @@ class HomeFragmentStateAdapter(
     }
 
     companion object{
-        const val FRAGMENTS_COUNT = 2
+        const val FRAGMENTS_COUNT = 4
     }
 }

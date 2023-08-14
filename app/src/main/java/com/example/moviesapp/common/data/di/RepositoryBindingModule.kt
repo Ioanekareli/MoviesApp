@@ -4,10 +4,12 @@ import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.PopularMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.SimilarMoviesRepositoryImpl
+import com.example.moviesapp.common.data.repository.TopRatedMoviesRepositoryImpl
 import com.example.moviesapp.common.domain.repository.CreditsRepository
 import com.example.moviesapp.common.domain.repository.MovieDetailsRepository
 import com.example.moviesapp.common.domain.repository.PopularMoviesRepository
 import com.example.moviesapp.common.domain.repository.SimilarMoviesRepository
+import com.example.moviesapp.common.domain.repository.TopRatedMoviesRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -28,5 +30,8 @@ abstract class RepositoryBindingModule {
 
     @Binds
     abstract fun bindSimilarMoviesRepository(similarMoviesRepositoryImpl: SimilarMoviesRepositoryImpl):SimilarMoviesRepository
+
+    @Binds
+    abstract fun bindTopRatedMoviesRepository(topRatedMoviesRepositoryImpl: TopRatedMoviesRepositoryImpl):TopRatedMoviesRepository
 
 }
