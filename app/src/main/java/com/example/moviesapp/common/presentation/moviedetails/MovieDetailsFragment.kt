@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -114,7 +115,12 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     }
 
     private fun createSimilarMoviesAdapter():SimilarMoviesAdapter{
-        return SimilarMoviesAdapter()
+        return SimilarMoviesAdapter(::onClick)
+    }
+
+    private fun onClick(movieId: Int){
+        val bundle = bundleOf("id" to movieId)
+        findNavController().navigate(R.id.movieDetailsFragment,bundle)
     }
 
     private fun initCastRecyclerView(

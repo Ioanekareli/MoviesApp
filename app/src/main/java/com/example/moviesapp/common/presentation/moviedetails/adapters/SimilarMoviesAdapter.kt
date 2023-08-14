@@ -3,17 +3,15 @@ package com.example.moviesapp.common.presentation.moviedetails.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviesapp.R
 import com.example.moviesapp.common.data.api.ApiConstants
-import com.example.moviesapp.common.domain.model.castcrew.Cast
-import com.example.moviesapp.common.domain.model.similarmovies.SimilarMovies
 import com.example.moviesapp.common.domain.model.similarmovies.SimilarMoviesDetails
 import com.example.moviesapp.common.utils.setImage
-import com.example.moviesapp.databinding.CastRecyclerItemBinding
 import com.example.moviesapp.databinding.SimilarMoviesRecyclerItemBinding
 import javax.inject.Inject
 
-class SimilarMoviesAdapter @Inject constructor()
+class SimilarMoviesAdapter @Inject constructor(
+    private val onClick:(movieId:Int) -> Unit
+)
     :RecyclerView.Adapter<SimilarMoviesAdapter.ViewHolder>(){
 
     private val similarMovies = mutableListOf<SimilarMoviesDetails>()
@@ -23,10 +21,10 @@ class SimilarMoviesAdapter @Inject constructor()
             fun onBind(position: Int){
                 val model = similarMovies[position]
                 with(binding){
-                    if (model.posterPath.isNotEmpty()){
+                    if (model.posterPath.isNotEmpty())
                         img.setImage(ApiConstants.IMG_URL + model.posterPath)
-                    }else{
-                        img.setImageResource(R.drawable.image_icon)
+                    itemView.setOnClickListener {
+                        model.id.let { movieId -> onClick.invoke(movieId) }
                     }
                 }
             }

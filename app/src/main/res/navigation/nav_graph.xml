@@ -34,12 +34,17 @@
     </fragment>
     <fragment
         android:id="@+id/reviewsFragment"
-        android:name="com.example.moviesapp.common.presentation.reviews.ReviewsFragment"
+        android:name="com.example.moviesapp.common.presentation.reviews.PeopleFragment"
         android:label="fragment_reviews"
-        tools:layout="@layout/fragment_reviews" />
+        tools:layout="@layout/fragment_people" />
     <fragment
         android:id="@+id/moviePostersFragment"
         android:name="com.example.moviesapp.common.presentation.poster.MoviePostersFragment"
         android:label="fragment_movie_posters"
         tools:layout="@layout/fragment_movie_posters" />
+    <fragment
+        android:id="@+id/topRatedMoviesFragment"
+        android:name="com.example.moviesapp.common.presentation.toprated.TopRatedMoviesFragment"
+        android:label="fragment_top_rated_movies"
+        tools:layout="@layout/fragment_top_rated_movies" />
 </navigation>
