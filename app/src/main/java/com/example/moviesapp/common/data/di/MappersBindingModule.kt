@@ -9,6 +9,8 @@ import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.Movi
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.ProductionCountryMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesListMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
+import com.example.moviesapp.common.data.api.api_mapper.popularpeoplemapper.PopularPeopleDetailsMapper
+import com.example.moviesapp.common.data.api.api_mapper.popularpeoplemapper.PopularPeopleMapper
 import com.example.moviesapp.common.data.api.api_mapper.similarmoviesmapper.SimilarMoviesDetailsMapper
 import com.example.moviesapp.common.data.api.api_mapper.similarmoviesmapper.SimilarMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.topratedmoviesmapper.TopRatedMoviesListMapper
@@ -23,6 +25,8 @@ import com.example.moviesapp.common.data.api.dto.moviedetailsDto.MovieDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.ProductionCountryDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDetailsDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
+import com.example.moviesapp.common.data.api.dto.popularpeopleDto.PopularPeopleDetailsDto
+import com.example.moviesapp.common.data.api.dto.popularpeopleDto.PopularPeopleDto
 import com.example.moviesapp.common.data.api.dto.similarmoviesDto.SimilarMoviesDetailsDto
 import com.example.moviesapp.common.data.api.dto.similarmoviesDto.SimilarMoviesDto
 import com.example.moviesapp.common.data.api.dto.topratedmoviesDto.TopRatedMoviesDto
@@ -37,6 +41,8 @@ import com.example.moviesapp.common.domain.model.moviedetails.Genre
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
+import com.example.moviesapp.common.domain.model.popularpeople.PopularPeople
+import com.example.moviesapp.common.domain.model.popularpeople.PopularPeopleDetails
 import com.example.moviesapp.common.domain.model.similarmovies.SimilarMovies
 import com.example.moviesapp.common.domain.model.similarmovies.SimilarMoviesDetails
 import com.example.moviesapp.common.domain.model.topratedmovies.TopRatedMovies
@@ -93,5 +99,11 @@ interface MappersBindingModule {
 
     @Binds
     fun provideTopRatedMoviesMapper(topRatedMoviesMapper: TopRatedMoviesMapper):ApiMapper<TopRatedMoviesDto, TopRatedMovies>
+
+    @Binds
+    fun providePopularPeopleMapper(popularPeopleMapper: PopularPeopleMapper):ApiMapper<PopularPeopleDto,PopularPeople>
+
+    @Binds
+    fun providePopularPeopleDetailsMapper(popularPeopleDetailsMapper: PopularPeopleDetailsMapper):ApiMapper<PopularPeopleDetailsDto,PopularPeopleDetails>
 
 }

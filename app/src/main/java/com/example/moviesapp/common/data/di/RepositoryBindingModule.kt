@@ -3,11 +3,13 @@ package com.example.moviesapp.common.data.di
 import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.PopularMoviesRepositoryImpl
+import com.example.moviesapp.common.data.repository.PopularPeopleRepositoryImpl
 import com.example.moviesapp.common.data.repository.SimilarMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.TopRatedMoviesRepositoryImpl
 import com.example.moviesapp.common.domain.repository.CreditsRepository
 import com.example.moviesapp.common.domain.repository.MovieDetailsRepository
 import com.example.moviesapp.common.domain.repository.PopularMoviesRepository
+import com.example.moviesapp.common.domain.repository.PopularPeopleRepository
 import com.example.moviesapp.common.domain.repository.SimilarMoviesRepository
 import com.example.moviesapp.common.domain.repository.TopRatedMoviesRepository
 import dagger.Binds
@@ -33,5 +35,8 @@ abstract class RepositoryBindingModule {
 
     @Binds
     abstract fun bindTopRatedMoviesRepository(topRatedMoviesRepositoryImpl: TopRatedMoviesRepositoryImpl):TopRatedMoviesRepository
+
+    @Binds
+    abstract fun bindPopularPeopleRepository(popularPeopleRepositoryImpl: PopularPeopleRepositoryImpl):PopularPeopleRepository
 
 }

@@ -5,6 +5,7 @@ object ApiConstants {
 
     const val POPULAR_MOVIES_ENDPOINT = "movie/popular"
     const val TOP_RATED_MOVIES_ENDPOINT = "movie/top_rated"
+    const val PEOPLE_ENDPOINT = "person/popular"
     const val MOVIE_DETAILS_ENDPOINT = "movie/{movie_id}"
     const val TRAILER_ENDPOINT = "movie/{movie_id}/videos"
     const val CAST_ENDPOINT = "movie/{movie_id}/credits"

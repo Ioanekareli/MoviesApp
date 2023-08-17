@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.moviesapp.common.presentation.popularmovies.PopularMoviesFragment
-import com.example.moviesapp.common.presentation.reviews.PeopleFragment
+import com.example.moviesapp.common.presentation.popularpeople.PopularPeopleFragment
 import com.example.moviesapp.common.presentation.toprated.TopRatedMoviesFragment
 import com.example.moviesapp.common.presentation.tvseries.TopRatedSeriesFragment
 import com.example.moviesapp.databinding.FragmentHomePageBinding
@@ -21,7 +21,7 @@ class HomePageFragment : Fragment() {
 
     private val fragmentList = listOf(
         PopularMoviesFragment(),
-        PeopleFragment(),
+        PopularPeopleFragment(),
         TopRatedMoviesFragment(),
         TopRatedSeriesFragment()
     )
@@ -54,7 +54,7 @@ class HomePageFragment : Fragment() {
         TabLayoutMediator(tabLayout,viewPager){ tab,index ->
             tab.text = when(index){
                 POPULAR_MOVIES -> "Popular Movies"
-                PEOPLE -> "People"
+                POPULAR_PEOPLE -> "Popular People"
                 TOP_RATED_MOVIES -> "Top Rated Movies"
                 TOP_RATED_SERIES -> "Top Rated Series"
                 else -> EMPTY_STRING
@@ -64,7 +64,7 @@ class HomePageFragment : Fragment() {
 
     companion object{
         private const val POPULAR_MOVIES = 0
-        private const val PEOPLE = 1
+        private const val POPULAR_PEOPLE = 1
         private const val TOP_RATED_MOVIES = 2
         private const val TOP_RATED_SERIES = 3
         private const val EMPTY_STRING = ""

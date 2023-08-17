@@ -32,11 +32,7 @@
             android:id="@+id/action_movieDetailsFragment_to_moviePostersFragment"
             app:destination="@id/moviePostersFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/reviewsFragment"
-        android:name="com.example.moviesapp.common.presentation.reviews.PeopleFragment"
-        android:label="fragment_reviews"
-        tools:layout="@layout/fragment_people" />
+
     <fragment
         android:id="@+id/moviePostersFragment"
         android:name="com.example.moviesapp.common.presentation.poster.MoviePostersFragment"
@@ -47,4 +43,14 @@
         android:name="com.example.moviesapp.common.presentation.toprated.TopRatedMoviesFragment"
         android:label="fragment_top_rated_movies"
         tools:layout="@layout/fragment_top_rated_movies" />
+    <fragment
+        android:id="@+id/popularPeopleFragment"
+        android:name="com.example.moviesapp.common.presentation.popularpeople.PopularPeopleFragment"
+        android:label="fragment_popular_people"
+        tools:layout="@layout/fragment_popular_people" />
+    <fragment
+        android:id="@+id/peopleDetailsFragment"
+        android:name="com.example.moviesapp.common.presentation.peopledetails.PeopleDetailsFragment"
+        android:label="fragment_people_details"
+        tools:layout="@layout/fragment_people_details" />
 </navigation>
