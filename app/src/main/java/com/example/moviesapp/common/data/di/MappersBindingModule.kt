@@ -7,6 +7,7 @@ import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CrewMappe
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieDetailsMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieGenreMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.ProductionCountryMapper
+import com.example.moviesapp.common.data.api.api_mapper.person.PersonDetailsMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesListMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularpeoplemapper.PopularPeopleDetailsMapper
@@ -23,6 +24,7 @@ import com.example.moviesapp.common.data.api.dto.castcrewDto.CrewDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.GenreDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.MovieDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.ProductionCountryDto
+import com.example.moviesapp.common.data.api.dto.persondetails.PersonDetailsDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDetailsDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import com.example.moviesapp.common.data.api.dto.popularpeopleDto.PopularPeopleDetailsDto
@@ -39,6 +41,7 @@ import com.example.moviesapp.common.domain.model.castcrew.Crew
 import com.example.moviesapp.common.domain.model.moviedetails.Countries
 import com.example.moviesapp.common.domain.model.moviedetails.Genre
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
+import com.example.moviesapp.common.domain.model.persondetails.PersonDetails
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.domain.model.popularpeople.PopularPeople
@@ -106,4 +109,6 @@ interface MappersBindingModule {
     @Binds
     fun providePopularPeopleDetailsMapper(popularPeopleDetailsMapper: PopularPeopleDetailsMapper):ApiMapper<PopularPeopleDetailsDto,PopularPeopleDetails>
 
+    @Binds
+    fun providePersonDetailsMapper(personDetailsMapper: PersonDetailsMapper):ApiMapper<PersonDetailsDto,PersonDetails>
 }

@@ -1,14 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".common.presentation.peopledetails.bio.PersonBiographyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentBio"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/body_grey">
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/personImg"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/personName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personImg"
+            android:layout_marginTop="32dp"
+            android:textSize="20sp"
+            android:textColor="@color/transparent_grey"
+            android:fontFamily="@font/poppins_medium"
+            android:textAlignment="center"
+            android:text="Al pacino"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/born"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BORN"
+            android:textSize="14sp"
+            android:textColor="@color/header_grey"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/birthDayTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="2000/20/1"
+            android:textAlignment="center"
+            android:textColor="@color/transparent_grey"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/born"
+            app:layout_constraintTop_toBottomOf="@+id/personName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/death"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEATH"
+            android:textSize="14sp"
+            android:textColor="@color/header_grey"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintStart_toEndOf="@+id/birthDayTv"
+            app:layout_constraintTop_toBottomOf="@+id/personName"
+            android:layout_marginStart="24dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/deathTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="2000/20/1"
+            android:textAlignment="center"
+            android:textColor="@color/transparent_grey"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/death"
+            app:layout_constraintTop_toBottomOf="@+id/personName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/knownFor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KNOWN FOR"
+            android:textSize="14sp"
+            android:textColor="@color/header_grey"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/born"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/knownForTv"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:textColor="@color/transparent_grey"
+            android:textAlignment="center"
+            android:maxLines="5"
+            android:autoSizeStepGranularity="2dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintTop_toBottomOf="@id/knownFor"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="BIOGRAPHY"
+            android:textAlignment="center"
+            android:textColor="@color/header_grey"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/knownForTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/biographyTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/transparent_grey"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bio"
+            android:maxLines="50"
+            android:autoSizeStepGranularity="2dp"
+            android:autoSizeTextType="uniform"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

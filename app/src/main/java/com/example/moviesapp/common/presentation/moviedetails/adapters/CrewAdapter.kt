@@ -10,8 +10,9 @@ import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.CrewRecyclerItemBinding
 import javax.inject.Inject
 
-class CrewAdapter @Inject constructor()
-    :RecyclerView.Adapter<CrewAdapter.ViewHolder>() {
+class CrewAdapter @Inject constructor(
+    private val onClick:(personId:Int) -> Unit
+):RecyclerView.Adapter<CrewAdapter.ViewHolder>() {
 
     private val crew = mutableListOf<Crew>()
 
@@ -27,6 +28,9 @@ class CrewAdapter @Inject constructor()
                     crewPic.setImageResource(R.drawable.person_icon)
                 crewName.text= model.name
                 job.text = model.job
+                itemView.setOnClickListener {
+                    model.id.let { personId -> onClick.invoke(personId) }
+                }
             }
         }
 

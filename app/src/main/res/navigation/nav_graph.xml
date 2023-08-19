@@ -52,5 +52,9 @@
         android:id="@+id/peopleDetailsFragment"
         android:name="com.example.moviesapp.common.presentation.peopledetails.PeopleDetailsFragment"
         android:label="fragment_people_details"
-        tools:layout="@layout/fragment_people_details" />
+        tools:layout="@layout/fragment_people_details" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

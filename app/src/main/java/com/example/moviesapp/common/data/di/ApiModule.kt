@@ -1,10 +1,10 @@
 package com.example.moviesapp.common.data.di
 
-import android.util.Log
 import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.data.api.api_service.CreditsApiService
 import com.example.moviesapp.common.data.api.api_service.MovieDetailsApiService
 import com.example.moviesapp.common.data.api.api_service.PeopleApiService
+import com.example.moviesapp.common.data.api.api_service.PersonDetailsApiService
 import com.example.moviesapp.common.data.api.api_service.PopularMoviesApiService
 import com.example.moviesapp.common.data.api.api_service.SimilarMoviesApiService
 import com.example.moviesapp.common.data.api.api_service.TopRatedMoviesApiService
@@ -89,6 +89,16 @@ object ApiModule{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(PeopleApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun personDetailsApiService():PersonDetailsApiService{
+        return Retrofit.Builder()
+            .baseUrl(ApiConstants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(PersonDetailsApiService::class.java)
     }
 
 }

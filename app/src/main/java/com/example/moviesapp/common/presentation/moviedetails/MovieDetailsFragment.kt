@@ -57,7 +57,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun initListeners(){
         binding.backBtn.setOnClickListener {
-            navigateToPopularMovies()
+            navigateBackStack()
         }
 
         binding.showMoreTv.setOnClickListener {
@@ -103,11 +103,11 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         observeSimilarMovies(adapter)
     }
     private fun createCastAdapter():CastAdapter{
-        return CastAdapter()
+        return CastAdapter(::onCastClick)
     }
 
     private fun createCrewAdapter():CrewAdapter{
-        return CrewAdapter()
+        return CrewAdapter(::onCrewClick)
     }
 
     private fun createBoxAdapter():BoxAdapter{
@@ -115,12 +115,22 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     }
 
     private fun createSimilarMoviesAdapter():SimilarMoviesAdapter{
-        return SimilarMoviesAdapter(::onClick)
+        return SimilarMoviesAdapter(::onMovieClick)
     }
 
-    private fun onClick(movieId: Int){
+    private fun onMovieClick(movieId: Int){
         val bundle = bundleOf("id" to movieId)
         findNavController().navigate(R.id.movieDetailsFragment,bundle)
+    }
+
+    private fun onCastClick(personId:Int){
+        val bundle = bundleOf("id" to personId)
+        findNavController().navigate(R.id.peopleDetailsFragment,bundle)
+    }
+
+    private fun onCrewClick(personId:Int){
+        val bundle = bundleOf("id" to personId)
+        findNavController().navigate(R.id.peopleDetailsFragment,bundle)
     }
 
     private fun initCastRecyclerView(
@@ -161,7 +171,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         }
     }
 
-    private fun navigateToPopularMovies(){
+    private fun navigateBackStack(){
         findNavController().popBackStack()
     }
 
