@@ -1,6 +1,7 @@
 package com.example.moviesapp.common.data.api.api_mapper.castcrewmapper
 
 import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
+import com.example.moviesapp.common.data.api.api_mapper.MappingException
 import com.example.moviesapp.common.data.api.dto.castcrewDto.CrewDetailsDto
 import com.example.moviesapp.common.domain.model.castcrew.Crew
 import javax.inject.Inject
@@ -11,7 +12,8 @@ class CrewMapper @Inject constructor():ApiMapper<CrewDetailsDto,Crew> {
             return Crew(
                 name = name.orEmpty(),
                 job = job.orEmpty(),
-                profile = profilePath.orEmpty()
+                profile = profilePath.orEmpty(),
+                id = id?: throw MappingException("Id can not be null")
             )
         }
     }

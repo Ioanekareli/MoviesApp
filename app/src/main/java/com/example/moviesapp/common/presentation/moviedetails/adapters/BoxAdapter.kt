@@ -3,13 +3,13 @@ package com.example.moviesapp.common.presentation.moviedetails.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviesapp.R
 import com.example.moviesapp.common.domain.model.box.Box
 import com.example.moviesapp.databinding.BoxItemBinding
 import javax.inject.Inject
 
-class BoxAdapter @Inject constructor()
-    :RecyclerView.Adapter<BoxAdapter.ViewHolder>(){
+class BoxAdapter @Inject constructor(
+    private val onClick:(movieId:Int) -> Unit
+):RecyclerView.Adapter<BoxAdapter.ViewHolder>(){
 
     private val box = mutableListOf<Box>()
 
@@ -21,6 +21,9 @@ class BoxAdapter @Inject constructor()
                    imageView.setImageResource(model.img)
                    tv.text = model.title
                    boxLayout.setBackgroundResource(model.color)
+                   itemView.setOnClickListener {
+                       model.id.let{ movieId -> onClick.invoke(movieId)}
+                   }
                }
             }
         }

@@ -10,7 +10,7 @@ import com.example.moviesapp.databinding.PopularPeopleRecyclerItemBinding
 import javax.inject.Inject
 
 class PopularPeopleRecyclerAdapter @Inject constructor(
-    private val onCLick:(movieId:Int) -> Unit
+    private val onCLick:(personId:Int) -> Unit
 ):RecyclerView.Adapter<PopularPeopleRecyclerAdapter.ViewHolder>() {
 
     private val popularPeople = mutableListOf<PopularPeopleDetails>()

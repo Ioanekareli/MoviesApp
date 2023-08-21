@@ -37,7 +37,11 @@
         android:id="@+id/moviePostersFragment"
         android:name="com.example.moviesapp.common.presentation.poster.MoviePostersFragment"
         android:label="fragment_movie_posters"
-        tools:layout="@layout/fragment_movie_posters" />
+        tools:layout="@layout/fragment_movie_posters" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/topRatedMoviesFragment"
         android:name="com.example.moviesapp.common.presentation.toprated.TopRatedMoviesFragment"
@@ -52,5 +56,9 @@
         android:id="@+id/peopleDetailsFragment"
         android:name="com.example.moviesapp.common.presentation.peopledetails.PeopleDetailsFragment"
         android:label="fragment_people_details"
-        tools:layout="@layout/fragment_people_details" />
+        tools:layout="@layout/fragment_people_details" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

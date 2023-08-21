@@ -10,8 +10,9 @@ import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.CastRecyclerItemBinding
 import javax.inject.Inject
 
-class CastAdapter @Inject constructor()
-    :RecyclerView.Adapter<CastAdapter.ViewHolder>() {
+class CastAdapter @Inject constructor(
+    private val onClick:(personId:Int) -> Unit
+):RecyclerView.Adapter<CastAdapter.ViewHolder>() {
 
     private val cast = mutableListOf<Cast>()
 
@@ -27,6 +28,9 @@ class CastAdapter @Inject constructor()
                         castPic.setImageResource(R.drawable.person_icon)
                     castName.text= model.name
                     character.text = model.character
+                    itemView.setOnClickListener {
+                        model.id.let { personId -> onClick.invoke(personId) }
+                    }
                 }
             }
 
