@@ -11,6 +11,8 @@ object ApiConstants {
     const val CAST_ENDPOINT = "movie/{movie_id}/credits"
     const val SIMILAR_MOVIES_ENDPOINT = "movie/{movie_id}/similar"
     const val PERSON_DETAILS_ENDPOINT = "person/{person_id}"
+    const val PERSON_MOVIES_ENDPOINT = "person/{person_id}/movie_credits"
+    const val MOVIE_POSTERS_ENDPOINT = "movie/{movie_id}/images"
 
     const val API_KEY = "f0e8fd8310cf03464835a4e517f013df"
     const val IMG_URL = "https://image.tmdb.org/t/p/w500"

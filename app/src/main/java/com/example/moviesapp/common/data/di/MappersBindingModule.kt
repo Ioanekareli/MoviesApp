@@ -4,10 +4,16 @@ import com.example.moviesapp.common.data.api.api_mapper.ApiMapper
 import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CastMapper
 import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CreditsMapper
 import com.example.moviesapp.common.data.api.api_mapper.castcrewmapper.CrewMapper
+import com.example.moviesapp.common.data.api.api_mapper.moviepostersmapper.BackdropMapper
+import com.example.moviesapp.common.data.api.api_mapper.moviepostersmapper.MoviePostersMapper
+import com.example.moviesapp.common.data.api.api_mapper.moviepostersmapper.PosterMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieDetailsMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.MovieGenreMapper
 import com.example.moviesapp.common.data.api.api_mapper.moviesdetailsmapper.ProductionCountryMapper
 import com.example.moviesapp.common.data.api.api_mapper.person.PersonDetailsMapper
+import com.example.moviesapp.common.data.api.api_mapper.personmovies.MoviesAsCastMapper
+import com.example.moviesapp.common.data.api.api_mapper.personmovies.MoviesAsCrewMapper
+import com.example.moviesapp.common.data.api.api_mapper.personmovies.PersonMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesListMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularmoviesmapper.PopularMoviesMapper
 import com.example.moviesapp.common.data.api.api_mapper.popularpeoplemapper.PopularPeopleDetailsMapper
@@ -24,7 +30,13 @@ import com.example.moviesapp.common.data.api.dto.castcrewDto.CrewDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.GenreDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.MovieDetailsDto
 import com.example.moviesapp.common.data.api.dto.moviedetailsDto.ProductionCountryDto
+import com.example.moviesapp.common.data.api.dto.moviepostersDto.BackdropDto
+import com.example.moviesapp.common.data.api.dto.moviepostersDto.MoviePostersDto
+import com.example.moviesapp.common.data.api.dto.moviepostersDto.PosterDto
 import com.example.moviesapp.common.data.api.dto.persondetails.PersonDetailsDto
+import com.example.moviesapp.common.data.api.dto.personmoviesDto.CastDto
+import com.example.moviesapp.common.data.api.dto.personmoviesDto.CrewDto
+import com.example.moviesapp.common.data.api.dto.personmoviesDto.PersonMoviesDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDetailsDto
 import com.example.moviesapp.common.data.api.dto.popularmoviesDto.PopularMoviesDto
 import com.example.moviesapp.common.data.api.dto.popularpeopleDto.PopularPeopleDetailsDto
@@ -41,7 +53,13 @@ import com.example.moviesapp.common.domain.model.castcrew.Crew
 import com.example.moviesapp.common.domain.model.moviedetails.Countries
 import com.example.moviesapp.common.domain.model.moviedetails.Genre
 import com.example.moviesapp.common.domain.model.moviedetails.MovieDetails
+import com.example.moviesapp.common.domain.model.movieposters.Backdrop
+import com.example.moviesapp.common.domain.model.movieposters.MoviePosters
+import com.example.moviesapp.common.domain.model.movieposters.Posters
 import com.example.moviesapp.common.domain.model.persondetails.PersonDetails
+import com.example.moviesapp.common.domain.model.personmovies.MoviesAsCast
+import com.example.moviesapp.common.domain.model.personmovies.MoviesAsCrew
+import com.example.moviesapp.common.domain.model.personmovies.PersonMovies
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMovies
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.domain.model.popularpeople.PopularPeople
@@ -111,4 +129,22 @@ interface MappersBindingModule {
 
     @Binds
     fun providePersonDetailsMapper(personDetailsMapper: PersonDetailsMapper):ApiMapper<PersonDetailsDto,PersonDetails>
+
+    @Binds
+    fun providePersonMoviesMapper(personMoviesMapper: PersonMoviesMapper):ApiMapper<PersonMoviesDto,PersonMovies>
+
+    @Binds
+    fun provideMoviesAsCastMapper(moviesAsCastMapper: MoviesAsCastMapper):ApiMapper<CastDto,MoviesAsCast>
+
+    @Binds
+    fun provideMoviesAsCrewMapper(moviesAsCrewMapper: MoviesAsCrewMapper):ApiMapper<CrewDto,MoviesAsCrew>
+
+    @Binds
+    fun provideMoviePostersMapper(moviePostersMapper: MoviePostersMapper):ApiMapper<MoviePostersDto,MoviePosters>
+
+    @Binds
+    fun provideBackdropMapper(backdropMapper: BackdropMapper):ApiMapper<BackdropDto,Backdrop>
+
+    @Binds
+    fun providePosterMapper(posterMapper: PosterMapper):ApiMapper<PosterDto,Posters>
 }

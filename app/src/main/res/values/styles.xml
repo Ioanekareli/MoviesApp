@@ -11,4 +11,9 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="quadraticImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">1%</item>
+    </style>
+
 </resources>

@@ -102,6 +102,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         initSimilarMoviesRecyclerView(adapter)
         observeSimilarMovies(adapter)
     }
+
     private fun createCastAdapter():CastAdapter{
         return CastAdapter(::onCastClick)
     }
@@ -111,7 +112,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     }
 
     private fun createBoxAdapter():BoxAdapter{
-        return BoxAdapter()
+        return BoxAdapter(::onPosterClick)
     }
 
     private fun createSimilarMoviesAdapter():SimilarMoviesAdapter{
@@ -131,6 +132,11 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     private fun onCrewClick(personId:Int){
         val bundle = bundleOf("id" to personId)
         findNavController().navigate(R.id.peopleDetailsFragment,bundle)
+    }
+
+    private fun onPosterClick(movieId: Int){
+        val bundle = bundleOf("id" to movieId)
+        findNavController().navigate(R.id.moviePostersFragment,bundle)
     }
 
     private fun initCastRecyclerView(
@@ -173,10 +179,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun navigateBackStack(){
         findNavController().popBackStack()
-    }
-
-    private fun navigateToMoviePoster(){
-        findNavController().navigate(R.id.moviePostersFragment)
     }
 
     private fun loadMovieDetails(){
@@ -316,9 +318,9 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     private fun observeBox(adapter: BoxAdapter){
         val boxList = listOf(
-            Box(R.drawable.eye_icon,"Reviews",R.drawable.box_card_view_design_red),
-            Box(R.drawable.camera_icon,"Movie Lists",R.drawable.box_card_view_design_blue),
-            Box(R.drawable.image_icon,"Posters",R.drawable.box_card_view_design_green),
+            Box(R.drawable.eye_icon,"Reviews",R.drawable.box_card_view_design_red,-1),
+            Box(R.drawable.camera_icon,"Movie Lists",R.drawable.box_card_view_design_blue,-1),
+            Box(R.drawable.image_icon,"Posters",R.drawable.box_card_view_design_green,safeArgs.id),
         )
         adapter.setData(boxList)
     }
@@ -357,7 +359,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
     companion object{
         private const val TRAILER = "Trailer"
-        private const val MOVIE = "movie"
     }
 
 }
