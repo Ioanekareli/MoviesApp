@@ -6,15 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moviesapp.R
-import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.utils.Resource
-import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.FragmentMoviePostersBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,7 +56,7 @@ class MoviePostersFragment : Fragment(R.layout.fragment_movie_posters) {
     }
 
     private fun onPosterClick(path:String){
-        val bundle = bundleOf("id" to path )
+        val bundle = bundleOf("path" to path )
         findNavController().navigate(R.id.posterDialogFragment,bundle)
     }
 
