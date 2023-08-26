@@ -4,13 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.moviesapp.R
 import com.example.moviesapp.common.presentation.popularmovies.PopularMoviesFragment
 import com.example.moviesapp.common.presentation.popularpeople.PopularPeopleFragment
 import com.example.moviesapp.common.presentation.toprated.TopRatedMoviesFragment
 import com.example.moviesapp.common.presentation.tvseries.TopRatedSeriesFragment
 import com.example.moviesapp.databinding.FragmentHomePageBinding
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -41,6 +47,13 @@ class HomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
+        initListeners()
+    }
+
+    private fun initListeners(){
+        binding.homePageAppBar.burgerBtn.setOnClickListener {
+            openDrawer()
+        }
     }
 
     private fun setupUI(){
@@ -60,6 +73,38 @@ class HomePageFragment : Fragment() {
                 else -> EMPTY_STRING
             }
         }.attach()
+    }
+
+    private fun openDrawer(){
+        val drawerLayout = requireActivity().findViewById<DrawerLayout>(R.id.drawerLayout)
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.drawer_menu)
+        val navHostFragment = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_item_popular_movies -> {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                R.id.menu_item_profile -> {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                R.id.menu_item_search -> {
+                    true
+                }
+                R.id.menu_item_my_movies -> {
+                    navController.navigate(R.id.myMoviesFragment)
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
+        drawerLayout.openDrawer(GravityCompat.START)
     }
 
     companion object{
