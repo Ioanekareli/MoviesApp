@@ -61,4 +61,13 @@
             android:name="id"
             app:argType="integer" />
     </fragment>
+    <dialog
+        android:id="@+id/posterDialogFragment"
+        android:name="com.example.moviesapp.common.presentation.poster.PosterDialogFragment"
+        tools:layout="@layout/fragment_poster_dialog"
+        android:label="PosterDialogFragment" >
+        <argument
+            android:name="path"
+            app:argType="string" />
+    </dialog>
 </navigation>

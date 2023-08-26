@@ -9,8 +9,9 @@ import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.PostersRecyclerItemBinding
 import javax.inject.Inject
 
-class MoviePostersAdapter @Inject constructor()
-    :RecyclerView.Adapter<MoviePostersAdapter.ViewHolder>() {
+class MoviePostersAdapter @Inject constructor(
+    private val onClick:( path:String ) -> Unit
+):RecyclerView.Adapter<MoviePostersAdapter.ViewHolder>() {
 
     private val moviePosters = mutableListOf<Posters>()
 
@@ -20,6 +21,9 @@ class MoviePostersAdapter @Inject constructor()
                 val model = moviePosters[position]
                 if (model.filePath.isNotEmpty()){
                     binding.poster.setImage(ApiConstants.IMG_URL + model.filePath)
+                }
+                itemView.setOnClickListener {
+                    model.filePath.let {path-> onClick.invoke(path)}
                 }
             }
 

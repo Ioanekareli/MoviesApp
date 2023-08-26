@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.databinding.FragmentMoviePostersBinding
@@ -33,12 +34,15 @@ class MoviePostersFragment : Fragment(R.layout.fragment_movie_posters) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initListeners()
+//        initListeners()
         setupUI()
         loadPosters(safeArgs.id)
     }
 
     private fun initListeners() {
+        binding.postersRecycler.setOnClickListener {
+            showPosterDialog()
+        }
     }
 
     private fun setupUI(){
@@ -48,7 +52,16 @@ class MoviePostersFragment : Fragment(R.layout.fragment_movie_posters) {
     }
 
     private fun createPostersAdapter(): MoviePostersAdapter {
-        return MoviePostersAdapter()
+        return MoviePostersAdapter(::onPosterClick)
+    }
+
+    private fun onPosterClick(path:String){
+        val bundle = bundleOf("path" to path )
+        findNavController().navigate(R.id.posterDialogFragment,bundle)
+    }
+
+    private fun showPosterDialog(){
+        PosterDialogFragment().show(childFragmentManager,"poster")
     }
 
     private fun initRecyclerView(
