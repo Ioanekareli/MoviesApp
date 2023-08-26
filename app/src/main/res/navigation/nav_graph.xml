@@ -70,4 +70,9 @@
             android:name="path"
             app:argType="string" />
     </dialog>
+    <fragment
+        android:id="@+id/myMoviesFragment"
+        android:name="com.example.moviesapp.common.presentation.mymovies.MyMoviesFragment"
+        android:label="fragment_my_movies"
+        tools:layout="@layout/fragment_my_movies" />
 </navigation>
