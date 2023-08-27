@@ -75,4 +75,13 @@
         android:name="com.example.moviesapp.common.presentation.mymovies.MyMoviesFragment"
         android:label="fragment_my_movies"
         tools:layout="@layout/fragment_my_movies" />
+    <dialog
+        android:id="@+id/addMovieDialogFragment"
+        android:name="com.example.moviesapp.common.presentation.moviedetails.addmoviedialog.AddMovieDialogFragment"
+        android:label="fragment_add_movie_dialog"
+        tools:layout="@layout/fragment_add_movie_dialog" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </dialog>
 </navigation>
