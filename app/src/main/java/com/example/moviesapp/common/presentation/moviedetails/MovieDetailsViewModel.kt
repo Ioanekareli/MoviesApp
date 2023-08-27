@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.moviesapp.common.data.db.entity.mymovies.MyMovieEntity
 import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
+import com.example.moviesapp.common.data.repository.MyMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.SimilarMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.TrailersRepositoryImpl
 import com.example.moviesapp.common.domain.model.castcrew.Credits
@@ -22,7 +24,8 @@ class MovieDetailsViewModel @Inject constructor(
     private val movieDetailsRepositoryImpl: MovieDetailsRepositoryImpl,
     private val trailerRepositoryImpl: TrailersRepositoryImpl,
     private val creditsRepositoryImpl: CreditsRepositoryImpl,
-    private val similarMoviesRepositoryImpl: SimilarMoviesRepositoryImpl
+    private val similarMoviesRepositoryImpl: SimilarMoviesRepositoryImpl,
+    private val myMoviesRepositoryImpl: MyMoviesRepositoryImpl
 ):ViewModel() {
 
 
@@ -37,6 +40,9 @@ class MovieDetailsViewModel @Inject constructor(
 
     val similarMovies:LiveData<Resource<SimilarMovies>> get() = _similarMovies
     private val _similarMovies = MutableLiveData<Resource<SimilarMovies>>()
+
+    val moviePoster:LiveData<String> get() = _moviePoster
+    private val _moviePoster = MutableLiveData<String>()
 
     fun loadMovieDetails(movieId:Int){
         viewModelScope.launch {
@@ -60,6 +66,14 @@ class MovieDetailsViewModel @Inject constructor(
         viewModelScope.launch {
             _similarMovies.value = similarMoviesRepositoryImpl.getSimilarMovies(movieId)
         }
+    }
+
+    fun addPoster(poster:String) = viewModelScope.launch {
+        _moviePoster.postValue(poster)
+    }
+
+    fun addMyMovie(movie: MyMovieEntity) = viewModelScope.launch {
+        myMoviesRepositoryImpl.insertMovie(movie)
     }
 
 }

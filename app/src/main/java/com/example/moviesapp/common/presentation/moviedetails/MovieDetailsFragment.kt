@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +31,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
     private val binding get() = _binding!!
     private var _binding: FragmentMovieDetailsBinding?=null
 
-    private val viewModel: MovieDetailsViewModel by viewModels()
+    private val viewModel: MovieDetailsViewModel by activityViewModels()
     private val safeArgs:MovieDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -66,6 +66,10 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
 
         binding.movieOverview.setOnClickListener {
             showLess()
+        }
+
+        binding.addMovieBtn.setOnClickListener {
+            navigateToMovieAddDialog()
         }
 
     }
@@ -181,6 +185,11 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
         findNavController().popBackStack()
     }
 
+    private fun navigateToMovieAddDialog(){
+        val bundle = bundleOf("movieId" to safeArgs.id)
+        findNavController().navigate(R.id.addMovieDialogFragment,bundle)
+    }
+
     private fun loadMovieDetails(){
         viewModel.loadMovieDetails(safeArgs.id)
     }
@@ -207,6 +216,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details){
                 is Resource.Success -> {
                     binding.progressBar.isVisible = false
                     with(binding){
+                        viewModel.addPoster(movieDetails.data.posterPath)
                         moviePosterSmall.setImage(ApiConstants.IMG_URL + movieDetails.data.posterPath)
                         moviesPosterLarge.setImage(ApiConstants.IMG_URL + movieDetails.data.backdropPath)
                         movieTitle.text = movieDetails.data.title

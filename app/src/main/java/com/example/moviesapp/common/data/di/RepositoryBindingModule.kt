@@ -3,6 +3,7 @@ package com.example.moviesapp.common.data.di
 import com.example.moviesapp.common.data.repository.CreditsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MovieDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.MoviePostersRepositoryImpl
+import com.example.moviesapp.common.data.repository.MyMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.PersonDetailsRepositoryImpl
 import com.example.moviesapp.common.data.repository.PersonMoviesRepositoryImpl
 import com.example.moviesapp.common.data.repository.PopularMoviesRepositoryImpl
@@ -12,6 +13,7 @@ import com.example.moviesapp.common.data.repository.TopRatedMoviesRepositoryImpl
 import com.example.moviesapp.common.domain.repository.CreditsRepository
 import com.example.moviesapp.common.domain.repository.MovieDetailsRepository
 import com.example.moviesapp.common.domain.repository.MoviePostersRepository
+import com.example.moviesapp.common.domain.repository.MyMoviesRepository
 import com.example.moviesapp.common.domain.repository.PersonDetailsRepository
 import com.example.moviesapp.common.domain.repository.PersonMoviesRepository
 import com.example.moviesapp.common.domain.repository.PopularMoviesRepository
@@ -53,5 +55,8 @@ abstract class RepositoryBindingModule {
 
     @Binds
     abstract fun bindMoviePosterRepositoryImpl(moviePostersRepositoryImpl: MoviePostersRepositoryImpl):MoviePostersRepository
+
+    @Binds
+    abstract fun bindMyMoviesRepositoryImpl(myMoviesRepositoryImpl: MyMoviesRepositoryImpl):MyMoviesRepository
 
 }

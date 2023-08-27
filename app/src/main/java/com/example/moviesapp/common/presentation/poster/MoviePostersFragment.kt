@@ -39,10 +39,7 @@ class MoviePostersFragment : Fragment(R.layout.fragment_movie_posters) {
         loadPosters(safeArgs.id)
     }
 
-    private fun initListeners() {
-        binding.postersRecycler.setOnClickListener {
-            showPosterDialog()
-        }
+    private fun initListeners(){
     }
 
     private fun setupUI(){
@@ -58,10 +55,6 @@ class MoviePostersFragment : Fragment(R.layout.fragment_movie_posters) {
     private fun onPosterClick(path:String){
         val bundle = bundleOf("path" to path )
         findNavController().navigate(R.id.posterDialogFragment,bundle)
-    }
-
-    private fun showPosterDialog(){
-        PosterDialogFragment().show(childFragmentManager,"poster")
     }
 
     private fun initRecyclerView(
