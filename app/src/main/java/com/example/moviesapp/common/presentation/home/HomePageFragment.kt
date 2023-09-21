@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -66,10 +65,10 @@ class HomePageFragment : Fragment() {
         viewPager.adapter = HomeFragmentStateAdapter(this,fragmentList)
         TabLayoutMediator(tabLayout,viewPager){ tab,index ->
             tab.text = when(index){
-                POPULAR_MOVIES -> "Popular Movies"
-                POPULAR_PEOPLE -> "Popular People"
-                TOP_RATED_MOVIES -> "Top Rated Movies"
-                TOP_RATED_SERIES -> "Top Rated Series"
+                POPULAR_MOVIES -> "Popular"
+                POPULAR_PEOPLE -> "People"
+                TOP_RATED_MOVIES -> "Top Rated"
+                TOP_RATED_SERIES -> "Series"
                 else -> EMPTY_STRING
             }
         }.attach()

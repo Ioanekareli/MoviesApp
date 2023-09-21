@@ -3,10 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/body_grey"
-    android:paddingStart="2dp"
-    android:paddingEnd="8dp"
-    android:padding="8dp">
+    android:elevation="8dp"
+    android:background="@color/background_grey">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/movie_title"
@@ -15,36 +13,43 @@
         android:fontFamily="@font/poppins_medium"
         android:textAlignment="textStart"
         android:textColor="@color/transparent_grey"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
         android:autoSizeStepGranularity="2dp"
         android:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/movie_popularity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/header_grey"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/release_date" />
-
-    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/header_grey"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+        android:textColor="@color/transparent_grey"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/releaseDataTv"
+        app:layout_constraintStart_toEndOf="@+id/releaseDataTv"
+        app:layout_constraintTop_toTopOf="@+id/releaseDataTv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/releaseDataTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Release Data :"
+        android:textColor="@color/lighter_header_grey"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/movie_title"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/movie_poster"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,6 +59,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.31" />
+        app:layout_constraintGuide_percent="0.28" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

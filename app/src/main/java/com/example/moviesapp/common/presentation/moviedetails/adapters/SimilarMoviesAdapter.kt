@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.domain.model.similarmovies.SimilarMoviesDetails
 import com.example.moviesapp.common.utils.setImage
-import com.example.moviesapp.databinding.SimilarMoviesRecyclerItemBinding
+import com.example.moviesapp.databinding.SingleMovieImgItemBinding
 import javax.inject.Inject
 
 class SimilarMoviesAdapter @Inject constructor(
@@ -16,7 +16,7 @@ class SimilarMoviesAdapter @Inject constructor(
 
     private val similarMovies = mutableListOf<SimilarMoviesDetails>()
 
-    inner class ViewHolder(private val binding:SimilarMoviesRecyclerItemBinding)
+    inner class ViewHolder(private val binding:SingleMovieImgItemBinding)
         :RecyclerView.ViewHolder(binding.root){
             fun onBind(position: Int){
                 val model = similarMovies[position]
@@ -32,7 +32,7 @@ class SimilarMoviesAdapter @Inject constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            SimilarMoviesRecyclerItemBinding.inflate(
+            SingleMovieImgItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

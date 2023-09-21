@@ -19,11 +19,7 @@ class PopularMoviesViewModel @Inject constructor(
     val popularMovies:LiveData<Resource<PopularMovies>> get() = _popularMovies
     private val _popularMovies = MutableLiveData<Resource<PopularMovies>>()
 
-    init {
-        loadMovies()
-    }
-
-    private fun loadMovies(){
+    fun loadMovies(){
         viewModelScope.launch {
             _popularMovies.value = repositoryImpl.getPopularMovies(1)
         }

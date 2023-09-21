@@ -3,50 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="4dp"
-    android:background="@color/header_grey">
+    android:layout_height="135dp"
+    android:background="@color/darker_header_grey">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_btn"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
+        android:layout_width="28dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/arrow_back"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/personPage"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/personName"
+        android:id="@+id/personPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:fontFamily="@font/poppins_semi_bold"
         android:text="Person Name"
-        android:textColor="@color/transparent_grey"
-        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toEndOf="@+id/back_btn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/back_btn" />
 
     <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/searchIcon"
+        android:layout_width="28dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/search_icon"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/personPage" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:background="@color/header_grey"
+        android:background="@color/darker_header_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

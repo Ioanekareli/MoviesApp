@@ -1,57 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="4dp"
-    android:background="@color/header_grey">
+    android:layout_height="135dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/darker_header_grey">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/burger_btn"
+    <com.example.moviesapp.common.presentation.customview.BurgerButtonCustomView
+        android:id="@+id/burgerBtn"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/burger_menu_icon"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/personName"
+        android:id="@+id/headerTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:text="Header Title"
-        android:textColor="@color/transparent_grey"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toEndOf="@+id/burger_btn"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/search_icon"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Home"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/burgerBtn" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:background="@color/header_grey"
+        android:background="@color/darker_header_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:tabTextAppearance="@style/tab_text" />
+        app:tabTextColor="@color/white"
+        app:tabIndicatorGravity="bottom"
+        app:tabIndicatorFullWidth="true"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabIndicatorColor="#32CD32"
+        app:tabMode="fixed"
+        tools:ignore="SpeakableTextPresentCheck"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
