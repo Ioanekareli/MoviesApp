@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -58,6 +59,7 @@ class PeopleDetailsFragment : Fragment(R.layout.fragment_people_details) {
         val adapter = createAdapter()
         initAdapter(adapter)
         observePersonName()
+        customizeUI()
     }
 
     private fun initAdapter(
@@ -88,7 +90,7 @@ class PeopleDetailsFragment : Fragment(R.layout.fragment_people_details) {
         vm.personDetails.observe(viewLifecycleOwner){personDetails ->
             when(personDetails) {
                 is Resource.Success -> {
-                    binding.personPageAppBar.personName.text = personDetails.data.name
+                    binding.personPageAppBar.personPage.text = personDetails.data.name
                 }
                 else ->{
 
@@ -103,6 +105,10 @@ class PeopleDetailsFragment : Fragment(R.layout.fragment_people_details) {
 
     private fun saveId(personId: Int){
         vm.saveId(personId)
+    }
+
+    private fun customizeUI(){
+        binding.personPageAppBar.searchIcon.isVisible = false
     }
 
     companion object{

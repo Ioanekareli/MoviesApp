@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -13,7 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
 import com.example.moviesapp.common.utils.Resource
 import com.example.moviesapp.databinding.FragmentPopularMoviesBinding
+import com.example.moviesapp.databinding.SnackBarCustomLayoutBinding
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.SnackbarLayout
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
@@ -34,6 +39,7 @@ class PopularMoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
+        loadPopularMovies()
     }
 
     private fun setupUI(){
@@ -70,17 +76,28 @@ class PopularMoviesFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     binding.progressBar.isVisible = false
-                    binding.errorText.isVisible = true
+                    showSnackBar()
                 }
                 is Resource.Loading -> {
                     binding.progressBar.isVisible = true
                 }
-
                 else -> {
-                    binding.errorText.isVisible = true
                 }
             }
         }
+    }
+
+    private fun loadPopularMovies(){
+        viewModel.loadMovies()
+    }
+
+    private fun showSnackBar(){
+        val customSnackBar = Snackbar.make(binding.root,"",Snackbar.LENGTH_LONG)
+        val layout = customSnackBar.view as SnackbarLayout
+        val bind = SnackBarCustomLayoutBinding.inflate(layoutInflater)
+        layout.addView(bind.root,0)
+        layout.setPadding(0,0,0,8)
+        customSnackBar.show()
     }
 
     override fun onDestroyView() {

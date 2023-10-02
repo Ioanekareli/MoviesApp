@@ -7,6 +7,7 @@ import com.example.moviesapp.common.data.api.ApiConstants
 import com.example.moviesapp.common.domain.model.popularmovies.PopularMoviesDetails
 import com.example.moviesapp.common.utils.setImage
 import com.example.moviesapp.databinding.PopularMoviesRecyclerItemBinding
+import java.text.SimpleDateFormat
 import javax.inject.Inject
 
 class PopularMoviesRecyclerAdapter @Inject constructor(
@@ -22,8 +23,7 @@ class PopularMoviesRecyclerAdapter @Inject constructor(
             val model = popularMovies[position]
             with(binding){
                 movieTitle.text = model.title
-                moviePopularity.text = model.popularity.toString()
-                releaseDate.text = model.releaseData
+                releaseDate.text = model.releaseData.replace("-"," ")
                 moviePoster.setImage(ApiConstants.IMG_URL + model.posterPath)
                 itemView.setOnClickListener {
                     model.id.let { movieId -> onClick.invoke(movieId) }

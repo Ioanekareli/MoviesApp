@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/body_grey"
+    android:background="@color/background_grey"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".common.presentation.popularpeople.PopularPeopleFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/popularPeopleRecycler"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:background="@color/body_grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
