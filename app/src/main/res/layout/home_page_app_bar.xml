@@ -7,7 +7,7 @@
     android:background="@color/darker_header_grey">
 
     <com.example.moviesapp.common.presentation.customview.BurgerButtonCustomView
-        android:id="@+id/burgerBtn"
+        android:id="@+id/back_button"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
@@ -28,7 +28,7 @@
         android:textSize="20sp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toEndOf="@+id/burgerBtn" />
+        app:layout_constraintStart_toEndOf="@+id/back_button" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

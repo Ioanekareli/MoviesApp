@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="4dp"
@@ -12,34 +13,38 @@
         android:id="@+id/peopleImg"
         android:layout_width="90dp"
         android:layout_height="120dp"
-        android:scaleType="centerCrop"
+        android:background="@drawable/shimmer_effect_shape"
         android:elevation="8dp"
-        android:background="@drawable/default_image_background"
-        app:layout_constraintBottom_toTopOf="@+id/peopleName"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/peopleName"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/title"
+        android:layout_width="80dp"
+        android:layout_height="15dp"
         android:layout_marginTop="8dp"
-        android:text=""
-        android:textColor="@color/transparent_grey"
-        android:fontFamily="@font/poppins_regular"
-        android:textAlignment="center"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="10sp"
-        android:autoSizeMaxTextSize="14sp"
-        android:autoSizeStepGranularity="1dp"
-        android:maxLines="3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/shimmer_effect_shape"
+        app:layout_constraintBottom_toTopOf="@+id/title2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/peopleImg" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/title2"
+        android:layout_width="70dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shimmer_effect_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
