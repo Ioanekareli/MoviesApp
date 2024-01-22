@@ -21,8 +21,13 @@ class PopularPeopleViewModel @Inject constructor(
 
     fun loadPopularPeople(){
         viewModelScope.launch {
+            _popularPeople.value = Resource.Loading
             _popularPeople.value = popularPeopleRepositoryImpl.getPopularPeople(1)
         }
+    }
+
+    fun swipeRefresh(){
+        loadPopularPeople()
     }
 
 }

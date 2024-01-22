@@ -36,6 +36,13 @@ class MyMoviesFragment : Fragment(R.layout.fragment_my_movies) {
     }
 
     private fun initListeners() {
+        binding.appBar.backButton.setOnClickListener {
+            navigateBacK()
+        }
+    }
+
+    private fun navigateBacK(){
+        findNavController().popBackStack()
     }
 
     private fun setUpUI() {

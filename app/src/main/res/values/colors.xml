@@ -19,4 +19,5 @@
     <color name="background_grey">#171b21</color>
     <color name="darker_header_grey">#4a5969</color>
     <color name="lime_green">#00FF00</color>
+    <color name="silver_grey">#C0C0C0</color>
 </resources>

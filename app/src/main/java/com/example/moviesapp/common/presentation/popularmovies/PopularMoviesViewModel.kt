@@ -21,8 +21,13 @@ class PopularMoviesViewModel @Inject constructor(
 
     fun loadMovies(){
         viewModelScope.launch {
+            _popularMovies.value = Resource.Loading
             _popularMovies.value = repositoryImpl.getPopularMovies(1)
         }
+    }
+
+    fun swipeRefresh(){
+        loadMovies()
     }
 
 }

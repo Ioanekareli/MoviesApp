@@ -50,7 +50,7 @@ class HomePageFragment : Fragment() {
     }
 
     private fun initListeners(){
-        binding.homePageAppBar.burgerBtn.setOnClickListener {
+        binding.homePageAppBar.backButton.setOnClickListener {
             openDrawer()
         }
     }

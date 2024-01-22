@@ -37,12 +37,21 @@ class PopularPeopleFragment : Fragment(R.layout.fragment_popular_people) {
         setupUI()
     }
 
-    private fun initListeners() {}
+    private fun initListeners(){
+        swipeRefresh()
+    }
 
     private fun setupUI() {
         val adapter = createAdapter()
         initRecyclerView(adapter)
         observePopularPeople(adapter)
+    }
+
+    private fun swipeRefresh(){
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            vm.swipeRefresh()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun createAdapter():PopularPeopleRecyclerAdapter{
@@ -59,7 +68,7 @@ class PopularPeopleFragment : Fragment(R.layout.fragment_popular_people) {
     ){
         binding.popularPeopleRecycler.apply {
             adapter = popularPeopleRecyclerAdapter
-            layoutManager = GridLayoutManager(requireContext(),3)
+            layoutManager = GridLayoutManager(requireContext(),4)
         }
     }
 
@@ -68,11 +77,18 @@ class PopularPeopleFragment : Fragment(R.layout.fragment_popular_people) {
             when(popularPeople){
                 is Resource.Success -> {
                     adapter.setData(popularPeople.data.popularPeopleDetails)
+                    binding.shimmerLayout.stopShimmer()
+                    binding.shimmerLayout.visibility = View.GONE
                 }
-
-                else -> {
-
+                is Resource.Error -> {
+                    binding.shimmerLayout.stopShimmer()
+                    binding.shimmerLayout.visibility = View.GONE
                 }
+                is Resource.Loading -> {
+                    binding.shimmerLayout.startShimmer()
+                    binding.shimmerLayout.visibility = View.VISIBLE
+                }
+                else -> {}
             }
         }
     }
