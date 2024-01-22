@@ -1,5 +1,6 @@
 package com.example.moviesapp.common.presentation.popularmovies
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -109,6 +110,7 @@ class PopularMoviesFragment : Fragment() {
         viewModel.loadMovies()
     }
 
+    @SuppressLint("RestrictedApi")
     private fun showSnackBar(){
         val customSnackBar = Snackbar.make(binding.root,"",Snackbar.LENGTH_LONG)
         val layout = customSnackBar.view as SnackbarLayout
