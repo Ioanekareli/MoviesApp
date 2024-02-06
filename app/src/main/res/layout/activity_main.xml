@@ -29,12 +29,16 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
-        android:background="@color/body_grey"
+        android:background="@color/background_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/nav_header_menu" >
+        app:menu="@menu/nav_header_menu"
+        app:itemTextAppearance="@style/NavDrawerTextStyle"
+        app:itemTextColor="@color/transparent_grey"
+        app:itemIconTint="@color/white"
+        >
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
